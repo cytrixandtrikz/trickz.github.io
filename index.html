@@ -286,44 +286,114 @@
       --button-hover-bg: #1a1a1a;
       --button-hover-border: #9932CC;
     }
+
+    body.green-theme {
+      --main-bg: #000;
+      --main-text-color: lime;
+      --sidebar-bg: #000;
+      --sidebar-border: lime;
+      --link-color: lime;
+      --link-hover-color: #32CD32;
+      --input-btn-bg: #000;
+      --input-btn-border: lime;
+      --output-bg: #000;
+      --output-border: lime;
+      --code-bg: #000;
+      --code-border: lime;
+      --button-hover-bg: #1a1a1a;
+      --button-hover-border: #32CD32;
+    }
   </style>
 </head>
 <body>
   <div id="loading-screen"></div>
-  <div class="rocket">
-    <div class="window"></div>
-    <div class="flame"></div>
-  </div>
   <div class="sidebar">
     <h1>TRICKz</h1>
-    <a href="#" id="welcome-btn">Welcome</a>
-    <a href="#" id="theme-toggle-btn">Toggle Theme</a>
-    <a href="#" id="change-theme-btn">Change Theme</a>
-    <a href="#" id="check-btn">Check</a>
+    <a href="#" id="home-btn">Home</a>
+    <a href="#" id="theme-btn">Themes</a>
+    <a href="#" id="input-btn">Input</a>
+    <a href="#" id="output-btn">Output</a>
+    <a href="#" id="code-btn">Code</a>
   </div>
   <div class="content">
-    <div id="welcome" class="section active">
-      <h2>Welcome to TRICKz</h2>
+    <div id="welcome">
+      <h2>Welcome to TRICKz Terminal</h2>
     </div>
-    <div id="theme-toggle" class="section">
-      <h2>Choose a theme</h2>
+    <div id="home-section" class="section active">
+      <h1>Welcome to the Home Section</h1>
+      <p>Explore the themes and features.</p>
+    </div>
+    <div id="theme-section" class="section">
+      <h1>Choose Your Theme</h1>
       <div class="theme-buttons">
-        <button onclick="toggleTerminalTheme()">Terminal</button>
-        <button onclick="toggleOceanBlueTheme()">Ocean Blue</button>
-        <button onclick="toggleFireRedTheme()">Fire Red</button>
-        <button onclick="toggleLightModeTheme()">Light Mode</button>
-        <button onclick="togglePurpleTheme()">Purple</button>
+        <button onclick="changeTheme('terminal-theme')">Terminal</button>
+        <button onclick="changeTheme('ocean-blue-theme')">Ocean Blue</button>
+        <button onclick="changeTheme('fire-red-theme')">Fire Red</button>
+        <button onclick="changeTheme('light-mode-theme')">Light Mode</button>
+        <button onclick="changeTheme('purple-theme')">Purple</button>
+        <button onclick="changeTheme('green-theme')">Green</button>
       </div>
     </div>
-    <div id="check" class="section">
-      <h2>Check</h2>
-      <input type="text" id="check-input" placeholder="Enter something" />
-      <button id="check-btn">Submit</button>
-      <div id="code-area" contenteditable="true"></div>
+    <div id="input-section" class="section">
+      <h1>Input Section</h1>
+      <input type="text" placeholder="Enter something" />
+      <button>Submit</button>
+    </div>
+    <div id="output-section" class="section">
+      <h1>Output Section</h1>
       <div id="output-container">
-        <iframe id="output-frame" src="https://example.com"></iframe>
+        <iframe id="output-frame"></iframe>
       </div>
+    </div>
+    <div id="code-section" class="section">
+      <h1>Code Section</h1>
+      <textarea id="code-area"></textarea>
     </div>
   </div>
+  <script>
+    function changeTheme(theme) {
+      document.body.className = theme;
+    }
+
+    const themeBtn = document.getElementById('theme-btn');
+    const homeBtn = document.getElementById('home-btn');
+    const inputBtn = document.getElementById('input-btn');
+    const outputBtn = document.getElementById('output-btn');
+    const codeBtn = document.getElementById('code-btn');
+
+    const sections = document.querySelectorAll('.section');
+    const welcomeSection = document.getElementById('welcome');
+    const themeSection = document.getElementById('theme-section');
+    const inputSection = document.getElementById('input-section');
+    const outputSection = document.getElementById('output-section');
+    const codeSection = document.getElementById('code-section');
+
+    homeBtn.addEventListener('click', function() {
+      setActiveSection(homeSection);
+    });
+
+    themeBtn.addEventListener('click', function() {
+      setActiveSection(themeSection);
+    });
+
+    inputBtn.addEventListener('click', function() {
+      setActiveSection(inputSection);
+    });
+
+    outputBtn.addEventListener('click', function() {
+      setActiveSection(outputSection);
+    });
+
+    codeBtn.addEventListener('click', function() {
+      setActiveSection(codeSection);
+    });
+
+    function setActiveSection(section) {
+      sections.forEach(function(sec) {
+        sec.classList.remove('active');
+      });
+      section.classList.add('active');
+    }
+  </script>
 </body>
 </html>
