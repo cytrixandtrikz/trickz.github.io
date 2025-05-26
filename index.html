@@ -5,6 +5,7 @@
   <title>TRICKz</title>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
+    /* Define default CSS variables */
     body {
       --main-bg: black;
       --main-text-color: white;
@@ -16,14 +17,17 @@
       --input-btn-border: #555;
       --output-bg: #111;
       --output-border: #333;
-      --code-bg: #111;
-      --code-border: #333;
+      --code-bg: #111; /* Assuming code-area background */
+      --code-border: #333; /* Assuming code-area border */
       --button-hover-bg: #333;
       --button-hover-border: #555;
+
+
+      /* Apply variables to base elements */
       background: var(--main-bg);
       color: var(--main-text-color);
-      font-family: monospace;
-      transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+      font-family: monospace; /* Default font */
+      transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; /* Smooth transition for themes */
       margin: 0;
       display: flex;
     }
@@ -103,7 +107,7 @@
     }
 
     .sidebar h1 {
-      color: var(--link-hover-color);
+      color: var(--link-hover-color); /* Matches hover color for consistency */
     }
 
     .sidebar a {
@@ -167,8 +171,9 @@
       margin-top:10px;
     }
 
+    /* Updated bubbly green welcome title (specific styling) */
     #welcome h2 {
-      color: #7CFC00 !important;
+      color: #7CFC00 !important; /* Bright lime green */
       font-weight: bold;
       font-size: 2em;
       text-align: center;
@@ -177,7 +182,7 @@
         0 0 10px #32CD32,
         0 0 20px #32CD32,
         0 0 30px #ADFF2F,
-        0 0 40px #00FF00 !important;
+        0 0 40px #00FF00 !important; /* Ensure this glow is strong */
       letter-spacing: 1.5px;
       padding: 10px 0;
       border-radius: 0;
@@ -189,16 +194,19 @@
       margin: 0 auto 20px auto;
     }
 
+    /* Styling for theme buttons to make them vertical */
     .theme-buttons button {
-      display: block;
-      width: 150px;
+      display: block; /* Make them stack vertically */
+      width: 150px; /* Give them a consistent width */
       text-align: center;
-      margin-bottom: 10px;
-      margin-right: 0;
+      margin-bottom: 10px; /* Space between buttons */
+      margin-right: 0; /* Remove horizontal margin */
       padding: 10px 15px;
       border-radius: 5px;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
+
+    /* --- Theme Specific Styles --- */
 
     body.terminal-theme {
       --main-bg: #000;
@@ -215,6 +223,7 @@
       --code-border: limegreen;
       --button-hover-bg: #1a1a1a;
       --button-hover-border: #00ff00;
+
       font-family: 'VT323', monospace;
       text-shadow: 0 0 5px limegreen, 0 0 10px limegreen;
     }
@@ -225,7 +234,7 @@
       --sidebar-bg: #000;
       --sidebar-border: deepskyblue;
       --link-color: deepskyblue;
-      --link-hover-color: #00BFFF;
+      --link-hover-color: #00BFFF; /* Darker blue for hover */
       --input-btn-bg: #000;
       --input-btn-border: deepskyblue;
       --output-bg: #000;
@@ -242,7 +251,7 @@
       --sidebar-bg: #000;
       --sidebar-border: red;
       --link-color: red;
-      --link-hover-color: #FF4500;
+      --link-hover-color: #FF4500; /* OrangeRed */
       --input-btn-bg: #000;
       --input-btn-border: red;
       --output-bg: #000;
@@ -272,11 +281,11 @@
 
     body.purple-theme {
       --main-bg: #000;
-      --main-text-color: #8A2BE2;
+      --main-text-color: #8A2BE2; /* BlueViolet */
       --sidebar-bg: #000;
       --sidebar-border: #8A2BE2;
       --link-color: #8A2BE2;
-      --link-hover-color: #9932CC;
+      --link-hover-color: #9932CC; /* DarkOrchid */
       --input-btn-bg: #000;
       --input-btn-border: #8A2BE2;
       --output-bg: #000;
@@ -287,112 +296,287 @@
       --button-hover-border: #9932CC;
     }
 
-    body.green-theme {
+    body.vanilla-theme {
+      --main-bg: #F5F5DC; /* Beige */
+      --main-text-color: black;
+      --sidebar-bg: #E0E0C0;
+      --sidebar-border: #D0D0B0;
+      --link-color: #333;
+      --link-hover-color: #8B4513; /* SaddleBrown */
+      --input-btn-bg: #FFF8DC; /* Cornsilk */
+      --input-btn-border: #D2B48C; /* Tan */
+      --output-bg: #FFF8DC;
+      --output-border: #D2B48C;
+      --code-bg: #FFF8DC;
+      --code-border: #D2B48C;
+      --button-hover-bg: #EEE8AA; /* PaleGoldenrod */
+      --button-hover-border: #C0C0C0;
+    }
+
+    /* --- New Themes --- */
+    body.rainbow-theme {
       --main-bg: #000;
-      --main-text-color: lime;
+      --main-text-color: white;
       --sidebar-bg: #000;
-      --sidebar-border: lime;
-      --link-color: lime;
-      --link-hover-color: #32CD32;
-      --input-btn-bg: #000;
-      --input-btn-border: lime;
-      --output-bg: #000;
-      --output-border: lime;
-      --code-bg: #000;
-      --code-border: lime;
-      --button-hover-bg: #1a1a1a;
-      --button-hover-border: #32CD32;
+      --sidebar-border: #FF00FF; /* Magenta */
+      --link-color: #00FFFF; /* Cyan */
+      --link-hover-color: #FF1493; /* Deep Pink */
+      --input-btn-bg: #111;
+      --input-btn-border: #FFD700; /* Gold */
+      --output-bg: #111;
+      --output-border: #00FF00; /* Green */
+      --code-bg: #111;
+      --code-border: #FF00FF;
+      --button-hover-bg: #222;
+      --button-hover-border: #FF1493;
+      /* Add text shadow for rainbow effect */
+      text-shadow:
+        0 0 5px #FF0000, /* Red */
+        0 0 10px #FFA500, /* Orange */
+        0 0 15px #FFFF00, /* Yellow */
+        0 0 20px #008000, /* Green */
+        0 0 25px #0000FF, /* Blue */
+        0 0 30px #4B0082, /* Indigo */
+        0 0 35px #EE82EE; /* Violet */
+    }
+
+    body.retro-theme {
+      --main-bg: #1a0033; /* Dark purplish-blue */
+      --main-text-color: #00ffcc; /* Neon Teal/Cyan */
+      --sidebar-bg: #0d001a; /* Even darker */
+      --sidebar-border: #ff0099; /* Hot Pink Neon */
+      --link-color: #00ffcc;
+      --link-hover-color: #ffff00; /* Yellow Neon */
+      --input-btn-bg: #26004d;
+      --input-btn-border: #ff0099;
+      --output-bg: #0d001a;
+      --output-border: #ffff00;
+      --code-bg: #0d001a;
+      --code-border: #ff0099;
+      --button-hover-bg: #330066;
+      --button-hover-border: #ffff00;
+      font-family: 'VT323', monospace; /* Ensure retro font */
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; /* Neon glow */
+    }
+
+    body.minecraft-theme {
+      --main-bg: #38761D; /* Dark grass green */
+      --main-text-color: #FFFFFF;
+      --sidebar-bg: #6A4A3A; /* Brown dirt/wood */
+      --sidebar-border: #9B7653; /* Lighter wood/dirt */
+      --link-color: #90EE90; /* Light green */
+      --link-hover-color: #FFFFFF;
+      --input-btn-bg: #2A520F; /* Darker green */
+      --input-btn-border: #A0A0A0; /* Stone grey */
+      --output-bg: #4E352B; /* Darker brown */
+      --output-border: #A0A0A0;
+      --code-bg: #4E352B;
+      --code-border: #A0A0A0;
+      --button-hover-bg: #5F854D; /* Slightly lighter green */
+      --button-hover-border: #B0B0B0;
+      font-family: monospace; /* Keeping default monospace, as there's no pixelated Minecraft font easily available through Google Fonts without adding more complexity */
+    }
+
+    /* Ensure text-shadow is off unless it's the terminal, rainbow or retro theme */
+    body:not(.terminal-theme):not(.rainbow-theme):not(.retro-theme) {
+        text-shadow: none !important;
     }
   </style>
 </head>
 <body>
-  <div id="loading-screen"></div>
-  <div class="sidebar">
-    <h1>TRICKz</h1>
-    <a href="#" id="home-btn">Home</a>
-    <a href="#" id="theme-btn">Themes</a>
-    <a href="#" id="input-btn">Input</a>
-    <a href="#" id="output-btn">Output</a>
-    <a href="#" id="code-btn">Code</a>
+  <div id="loading-screen">
+    <div class="rocket">
+      <div class="window"></div>
+      <div class="flame"></div>
+    </div>
   </div>
+
+  <div class="sidebar">
+    <h1>🛠️ TRICKz</h1>
+    <a href="#" data-target="welcome">🏠 Welcome</a>
+    <a href="#" data-target="code-editor">💻 Coding</a>
+    <a href="#" data-target="hackit">🎯 HackIt!</a>
+    <a href="#" data-target="themes">🎨 Themes</a>
+    <a href="#" data-target="recon">🕵️ Reconnaissance</a>
+    <a href="https://discord.gg/4SYtwm8kgG" target="_blank">💬 Discord</a>
+  </div>
+
   <div class="content">
-    <div id="welcome">
-      <h2>Welcome to TRICKz Terminal</h2>
+    <div id="welcome" class="section active">
+      <h2>Welcome to TRICKz</h2>
+      <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
     </div>
-    <div id="home-section" class="section active">
-      <h1>Welcome to the Home Section</h1>
-      <p>Explore the themes and features.</p>
-    </div>
-    <div id="theme-section" class="section">
-      <h1>Choose Your Theme</h1>
-      <div class="theme-buttons">
-        <button onclick="changeTheme('terminal-theme')">Terminal</button>
-        <button onclick="changeTheme('ocean-blue-theme')">Ocean Blue</button>
-        <button onclick="changeTheme('fire-red-theme')">Fire Red</button>
-        <button onclick="changeTheme('light-mode-theme')">Light Mode</button>
-        <button onclick="changeTheme('purple-theme')">Purple</button>
-        <button onclick="changeTheme('green-theme')">Green</button>
-      </div>
-    </div>
-    <div id="input-section" class="section">
-      <h1>Input Section</h1>
-      <input type="text" placeholder="Enter something" />
-      <button>Submit</button>
-    </div>
-    <div id="output-section" class="section">
-      <h1>Output Section</h1>
+
+    <div id="code-editor" class="section">
+      <h2>Select Your Language and Code</h2>
+      <button onclick="setLanguage('html')">HTML</button>
+      <button onclick="setLanguage('css')">CSS</button>
+      <button onclick="setLanguage('javascript')">JavaScript</button>
+      <textarea id="code-area"></textarea>
+      <button onclick="runCode()">Run Code</button>
       <div id="output-container">
         <iframe id="output-frame"></iframe>
       </div>
+      <div id="error-msg" style="color:red;margin-top:10px;"></div>
     </div>
-    <div id="code-section" class="section">
-      <h1>Code Section</h1>
-      <textarea id="code-area"></textarea>
+
+    <div id="hackit" class="section">
+      <h2>HackIt! Level 1</h2>
+      <p>Can you deencrypt the password from the HTML source code?</p>
+      <input type="text" id="hackit-answer" placeholder="Enter password...">
+      <button onclick="checkHackitLevel1()">Submit</button>
+      <div id="hackit-result" style="margin-top:10px;"></div>
+    </div>
+
+    <div id="hackit-level2" class="section">
+      <h2>HackIt! Level 2</h2>
+      <p>Encrypt the following password and enter the result.</p>
+      <p><strong>Password:</strong> phantom_gate</p>
+      <input type="text" id="level2-answer" placeholder="Enter encrypted password...">
+      <button onclick="checkHackitLevel2()">Submit</button>
+      <div id="level2-result" style="margin-top:10px;"></div>
+    </div>
+
+    <div id="themes" class="section">
+      <h2>🎨 Themes</h2>
+      <div id="themes-locked-message">
+        <p style="color: yellow;">Themes is locked! To unlock themes, you must first complete HackIt! Level One!</p>
+      </div>
+      <div id="themes-options" style="display: none;">
+        <p>Choose your theme:</p>
+        <div class="theme-buttons">
+          <button onclick="applyTheme('terminal')">Terminal</button>
+          <button onclick="applyTheme('ocean-blue')">Ocean Blue</button>
+          <button onclick="applyTheme('fire-red')">Fire Red</button>
+          <button onclick="applyTheme('light-mode')">Light Mode</button>
+          <button onclick="applyTheme('purple')">Purple</button>
+          <button onclick="applyTheme('vanilla')">Vanilla</button>
+          <button onclick="applyTheme('rainbow')">Rainbow</button>
+          <button onclick="applyTheme('retro')">Retro</button>
+          <button onclick="applyTheme('minecraft')">Minecraft</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="recon" class="section">
+      <h2>🕵️ Reconnaissance</h2>
+      <p>Once you hack the account and get the encrypted password, you win. To win, you must paste both the encrypted password and the real password below:</p>
+      <input type="text" id="encrypted" placeholder="Encrypted password (Base64)">
+      <br>
+      <input type="text" id="realpass" placeholder="Real password">
+      <br>
+      <button onclick="checkRecon()">Submit</button>
+      <div id="recon-result" style="margin-top:10px;"></div>
+      <br><br>
+      <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
     </div>
   </div>
+
   <script>
-    function changeTheme(theme) {
-      document.body.className = theme;
+    let isLevelOneComplete = false; // Flag to track Level 1 completion
+
+    // Section switching
+    document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.dataset.target;
+
+        // Hide all sections first
+        document.querySelectorAll('.section').forEach(section => {
+          section.classList.remove('active');
+        });
+
+        // Handle themes section specifically
+        if (targetId === 'themes') {
+          if (isLevelOneComplete) {
+            document.getElementById('themes-locked-message').style.display = 'none';
+            document.getElementById('themes-options').style.display = 'block';
+          } else {
+            document.getElementById('themes-locked-message').style.display = 'block';
+            document.getElementById('themes-options').style.display = 'none';
+          }
+        } else {
+          // For other sections, ensure theme options are hidden if user navigates away from themes
+          if (document.getElementById('themes-options')) {
+            document.getElementById('themes-options').style.display = 'none';
+          }
+        }
+
+        // Activate the target section
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    function setLanguage(language) {
+      const codeArea = document.getElementById('code-area');
+      codeArea.value = '';
+      codeArea.placeholder = 'Write your ' + language.toUpperCase() + ' code here...';
     }
 
-    const themeBtn = document.getElementById('theme-btn');
-    const homeBtn = document.getElementById('home-btn');
-    const inputBtn = document.getElementById('input-btn');
-    const outputBtn = document.getElementById('output-btn');
-    const codeBtn = document.getElementById('code-btn');
+    function runCode() {
+      const code = document.getElementById('code-area').value;
+      const frame = document.getElementById('output-frame');
+      const errorMsg = document.getElementById('error-msg');
+      try {
+        frame.srcdoc = code;
+        errorMsg.textContent = "";
+      } catch (err) {
+        frame.srcdoc = `<p style="color:red;font-family:monospace;">⚠️ hmm.. this code seems wrong</p>`;
+        errorMsg.textContent = "⚠️ hmm.. this code seems wrong";
+      }
+    }
 
-    const sections = document.querySelectorAll('.section');
-    const welcomeSection = document.getElementById('welcome');
-    const themeSection = document.getElementById('theme-section');
-    const inputSection = document.getElementById('input-section');
-    const outputSection = document.getElementById('output-section');
-    const codeSection = document.getElementById('code-section');
+    function checkHackitLevel1() {
+      const input = document.getElementById('hackit-answer').value.trim();
+      const result = document.getElementById('hackit-result');
+      if (input === "trickz_master") {
+        result.innerHTML = "<span style='color:lightgreen;'>✅ Correct! Welcome to Level 2...</span>";
+        isLevelOneComplete = true; // Set flag to true when Level 1 is completed
+        setTimeout(() => {
+          document.getElementById('hackit').classList.remove('active');
+          document.getElementById('hackit-level2').classList.add('active');
+        }, 1500);
+      } else {
+        result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
+      }
+    }
 
-    homeBtn.addEventListener('click', function() {
-      setActiveSection(homeSection);
-    });
+    function checkHackitLevel2() {
+      const input = document.getElementById('level2-answer').value.trim();
+      const result = document.getElementById('level2-result');
+      if (input === "cGhhbnRvbV9nYXRl") {
+        result.innerHTML = "<span style='color:lightgreen;'>🎉 You completed Level 2! More coming soon...</span>";
+      } else {
+        result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
+      }
+    }
 
-    themeBtn.addEventListener('click', function() {
-      setActiveSection(themeSection);
-    });
+    function checkRecon() {
+      const enc = document.getElementById('encrypted').value.trim();
+      const pass = document.getElementById('realpass').value.trim();
+      const result = document.getElementById('recon-result');
+      if (enc === "c2VjdXJlcGFzc3dvcmQyMg==" && pass === "securepassword22") {
+        result.innerHTML = "<span style='color:lightgreen; font-weight:bold;'>🎉 You win!!</span>";
+      } else {
+        result.innerHTML = "<span style='color:red;'>❌ Incorrect, try again.</span>";
+      }
+    }
 
-    inputBtn.addEventListener('click', function() {
-      setActiveSection(inputSection);
-    });
+    // Function to handle theme selection
+    function applyTheme(themeName) {
+      // Remove all existing theme classes from the body
+      document.body.classList.remove(
+        'terminal-theme', 'ocean-blue-theme', 'fire-red-theme',
+        'light-mode-theme', 'purple-theme', 'vanilla-theme',
+        // Add new themes here
+        'rainbow-theme', 'retro-theme', 'minecraft-theme'
+      );
 
-    outputBtn.addEventListener('click', function() {
-      setActiveSection(outputSection);
-    });
+      // Add the new theme class
+      document.body.classList.add(themeName + '-theme');
 
-    codeBtn.addEventListener('click', function() {
-      setActiveSection(codeSection);
-    });
-
-    function setActiveSection(section) {
-      sections.forEach(function(sec) {
-        sec.classList.remove('active');
-      });
-      section.classList.add('active');
+      // You can add an alert for feedback or remove it if you prefer silent changes
+      // alert(`Theme "${themeName}" applied!`);
     }
   </script>
 </body>
