@@ -117,7 +117,6 @@
         0 0 40px #00FF00 !important;
       letter-spacing: 1.5px;
       padding: 10px 0;
-      user-select: none;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       margin: 0 auto 20px auto;
     }
@@ -129,7 +128,6 @@
       margin-bottom: 10px;
       padding: 10px 15px;
       border-radius: 5px;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
     body.terminal-theme {
@@ -193,21 +191,7 @@
 
     <div id="hackit-level2" class="section">
       <h2>HackIt! Level 2</h2>
-      <p>Encrypt the following password and enter the result:</p>
-      <p><strong>Password:</strong> phantom_gate</p>
-      <input id="l2" placeholder="Enter encrypted password...">
-      <button onclick="checkLevel2()">Submit</button>
-      <div id="r2"></div>
-    </div>
-
-    <div id="hackit-level3" class="section">
-      <h2>HackIt! Level 3</h2>
-      <p>Download <code>crackit.txt</code> (50 lines) and find the two passwords within.</p>
-      <button onclick="downloadCrackit()">Download crackit.txt</button>
-      <input id="l3a" placeholder="First password">
-      <input id="l3b" placeholder="Second password">
-      <button onclick="checkLevel3()">Submit</button>
-      <div id="r3"></div>
+      <p>👀 Level 2 coming soon... (or insert puzzle here)</p>
     </div>
 
     <div id="themes" class="section">
@@ -239,13 +223,11 @@
   <script>
     let level1Passed = false;
 
-    document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = link.dataset.target;
-        showSection(target);
-      });
-    });
+    document.querySelectorAll('.sidebar a[data-target]').forEach(link => link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.dataset.target;
+      showSection(target);
+    }));
 
     function showSection(id) {
       document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
@@ -269,58 +251,15 @@
         r.textContent = '✅';
         level1Passed = true;
 
-        // 🔓 Unlock themes
+        // Unlock Themes
         document.getElementById('locked-themes').style.display = 'none';
         document.getElementById('theme-options').style.display = 'block';
 
+        // Go to Level 2
         setTimeout(() => showSection('hackit-level2'), 500);
       } else {
         r.textContent = '❌';
       }
-    }
-
-    function checkLevel2() {
-      const v = document.getElementById('l2').value.trim(), r = document.getElementById('r2');
-      if (v === 'cGhhbnRvbV9nYXRl') {
-        r.textContent = '✅';
-        setTimeout(() => showSection('hackit-level3'), 500);
-      } else {
-        r.textContent = '❌';
-      }
-    }
-
-    function downloadCrackit() {
-      const lines = [];
-      const brokenSamples = [
-        'var x = ;', 'function() {', 'if (true) console.log("hello"',
-        'console.log("Error)', 'return undefined;', 'let a = 123;',
-        'for i in range(10):', 'print("missing end"', 'try {',
-        'catch(e) { console.log(e);', 'int main() {', '}',
-        '// TODO: fix this later', '...'
-      ];
-      for (let i = 1; i <= 50; i++) {
-        if (i === 10) {
-          lines.push('// Password hint: /* delta456 */');
-        } else if (i === 30) {
-          lines.push('/* secret_key = "omega789"; // do not share */');
-        } else {
-          lines.push(brokenSamples[Math.floor(Math.random() * brokenSamples.length)]);
-        }
-      }
-      const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'crackit.txt';
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    function checkLevel3() {
-      const a = document.getElementById('l3a').value.trim();
-      const b = document.getElementById('l3b').value.trim();
-      const r = document.getElementById('r3');
-      r.textContent = (a === 'delta456' && b === 'omega789') ? '🎉' : '❌';
     }
 
     function applyTheme(name) {
@@ -329,10 +268,9 @@
     }
 
     function checkRecon() {
-      const e = document.getElementById('enc').value.trim();
-      const p = document.getElementById('pass').value.trim();
-      document.getElementById('rcon').textContent =
-        (e === 'c2VjdXJlcGFzc3dvcmQyMg==' && p === 'securepassword22') ? '🎉' : '❌';
+      const e = document.getElementById('enc').value.trim(),
+            p = document.getElementById('pass').value.trim();
+      document.getElementById('rcon').textContent = (e === 'c2VjdXJlcGFzc3dvcmQyMg==' && p === 'securepassword22') ? '🎉' : '❌';
     }
   </script>
 </body>
