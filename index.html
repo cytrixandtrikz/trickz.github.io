@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -397,18 +398,19 @@
     <a href="#" data-target="code-editor">💻 Coding</a>
     <a href="#" data-target="hackit">🔐 HackIt!</a>
     <a href="#" data-target="themes">📓 Themes</a>
+    <a href="#" data-target="recon">📈 instawam fake website course</a>
     <a href="https://discord.gg/4SYtwm8kgG" target="_blank">💬 Our Discord</a>
     <a href="https://cytrixandtrikz.github.io/vault.website.github.io/" target="_blank">🗃️ vault chat (vfc)</a>
     <a href="https://cytrixandtrikz.github.io/fakewebpage.github.io/ " target="_blank">📉 fake webpage course</a>
-    <a href="https://cytrixandtrikz.github.io/instawam.github.io/" target="_blank">🕵️ Reconnaissance
+ 
  </div>
-<div class="content">
-  <div id="welcome" class="section active">
-    <h2>Welcome to TRICKz</h2>
-    <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
-    <a href="https://discord.gg/4SYtwm8kgG" target="_blank">Go check out our Discord</a>
-  </div>
+
+  <div class="content">
+    <div id="welcome" class="section active">
+      <h2>Welcome to TRICKz</h2>
+      <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
 </div>
+
     <div id="code-editor" class="section">
       <h2>Select Your Language and Code</h2>
       <button onclick="setLanguage('html')">HTML</button>
@@ -459,6 +461,20 @@
         </div>
       </div>
     </div>
+
+    <div id="recon" class="section">
+      <h2>🕵️ Reconnaissance</h2>
+      <p>Once you hack the account and get the encrypted password, you win. To win, you must paste both the encrypted password and the real password below:</p>
+      <input type="text" id="encrypted" placeholder="Encrypted password (Base64)">
+      <br>
+      <input type="text" id="realpass" placeholder="Real password">
+      <br>
+      <button onclick="checkRecon()">Submit</button>
+      <div id="recon-result" style="margin-top:10px;"></div>
+      <br><br>
+      <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
+    </div>
+  </div>
 
   <script>
     let isLevelOneComplete = false; // Flag to track Level 1 completion
