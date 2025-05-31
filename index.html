@@ -6,7 +6,6 @@
   <title>TRICKz</title>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
-    /* Define default CSS variables */
     body {
       --main-bg: black;
       --main-text-color: white;
@@ -18,17 +17,16 @@
       --input-btn-border: #555;
       --output-bg: #111;
       --output-border: #333;
-      --code-bg: #111; /* Assuming code-area background */
-      --code-border: #333; /* Assuming code-area border */
+      --code-bg: #111; 
+      --code-border: #333;
       --button-hover-bg: #333;
       --button-hover-border: #555;
 
 
-      /* Apply variables to base elements */
       background: var(--main-bg);
       color: var(--main-text-color);
-      font-family: monospace; /* Default font */
-      transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; /* Smooth transition for themes */
+      font-family: monospace;
+      transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
       margin: 0;
       display: flex;
     }
@@ -108,7 +106,7 @@
     }
 
     .sidebar h1 {
-      color: var(--link-hover-color); /* Matches hover color for consistency */
+      color: var(--link-hover-color); 
     }
 
     .sidebar a {
@@ -172,9 +170,8 @@
       margin-top:10px;
     }
 
-    /* Updated bubbly green welcome title (specific styling) */
     #welcome h2 {
-      color: #7CFC00 !important; /* Bright lime green */
+      color: #7CFC00 !important;
       font-weight: bold;
       font-size: 2em;
       text-align: center;
@@ -183,7 +180,7 @@
         0 0 10px #32CD32,
         0 0 20px #32CD32,
         0 0 30px #ADFF2F,
-        0 0 40px #00FF00 !important; /* Ensure this glow is strong */
+        0 0 40px #00FF00 !important;
       letter-spacing: 1.5px;
       padding: 10px 0;
       border-radius: 0;
@@ -195,19 +192,17 @@
       margin: 0 auto 20px auto;
     }
 
-    /* Styling for theme buttons to make them vertical */
     .theme-buttons button {
-      display: block; /* Make them stack vertically */
-      width: 150px; /* Give them a consistent width */
+      display: block;
+      width: 150px; 
       text-align: center;
-      margin-bottom: 10px; /* Space between buttons */
-      margin-right: 0; /* Remove horizontal margin */
+      margin-bottom: 10px;
+      margin-right: 0; 
       padding: 10px 15px;
       border-radius: 5px;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
-    /* --- Theme Specific Styles --- */
 
     body.terminal-theme {
       --main-bg: #000;
@@ -235,7 +230,7 @@
       --sidebar-bg: #000;
       --sidebar-border: deepskyblue;
       --link-color: deepskyblue;
-      --link-hover-color: #00BFFF; /* Darker blue for hover */
+      --link-hover-color: #00BFFF; 
       --input-btn-bg: #000;
       --input-btn-border: deepskyblue;
       --output-bg: #000;
@@ -252,7 +247,7 @@
       --sidebar-bg: #000;
       --sidebar-border: red;
       --link-color: red;
-      --link-hover-color: #FF4500; /* OrangeRed */
+      --link-hover-color: #FF4500; 
       --input-btn-bg: #000;
       --input-btn-border: red;
       --output-bg: #000;
@@ -282,11 +277,11 @@
 
     body.purple-theme {
       --main-bg: #000;
-      --main-text-color: #8A2BE2; /* BlueViolet */
+      --main-text-color: #8A2BE2; 
       --sidebar-bg: #000;
       --sidebar-border: #8A2BE2;
       --link-color: #8A2BE2;
-      --link-hover-color: #9932CC; /* DarkOrchid */
+      --link-hover-color: #9932CC; 
       --input-btn-bg: #000;
       --input-btn-border: #8A2BE2;
       --output-bg: #000;
@@ -298,56 +293,54 @@
     }
 
     body.vanilla-theme {
-      --main-bg: #F5F5DC; /* Beige */
+      --main-bg: #F5F5DC; 
       --main-text-color: black;
       --sidebar-bg: #E0E0C0;
       --sidebar-border: #D0D0B0;
       --link-color: #333;
-      --link-hover-color: #8B4513; /* SaddleBrown */
-      --input-btn-bg: #FFF8DC; /* Cornsilk */
-      --input-btn-border: #D2B48C; /* Tan */
+      --link-hover-color: #8B4513; 
+      --input-btn-bg: #FFF8DC; 
+      --input-btn-border: #D2B48C; 
       --output-bg: #FFF8DC;
       --output-border: #D2B48C;
       --code-bg: #FFF8DC;
       --code-border: #D2B48C;
-      --button-hover-bg: #EEE8AA; /* PaleGoldenrod */
+      --button-hover-bg: #EEE8AA; /
       --button-hover-border: #C0C0C0;
     }
 
-    /* --- New Themes --- */
     body.rainbow-theme {
       --main-bg: #000;
       --main-text-color: white;
       --sidebar-bg: #000;
-      --sidebar-border: #FF00FF; /* Magenta */
-      --link-color: #00FFFF; /* Cyan */
-      --link-hover-color: #FF1493; /* Deep Pink */
+      --sidebar-border: #FF00FF; 
+      --link-color: #00FFFF; 
+      --link-hover-color: #FF1493; 
       --input-btn-bg: #111;
-      --input-btn-border: #FFD700; /* Gold */
+      --input-btn-border: #FFD700; 
       --output-bg: #111;
-      --output-border: #00FF00; /* Green */
+      --output-border: #00FF00; 
       --code-bg: #111;
       --code-border: #FF00FF;
       --button-hover-bg: #222;
       --button-hover-border: #FF1493;
-      /* Add text shadow for rainbow effect */
       text-shadow:
-        0 0 5px #FF0000, /* Red */
-        0 0 10px #FFA500, /* Orange */
-        0 0 15px #FFFF00, /* Yellow */
-        0 0 20px #008000, /* Green */
-        0 0 25px #0000FF, /* Blue */
-        0 0 30px #4B0082, /* Indigo */
-        0 0 35px #EE82EE; /* Violet */
+        0 0 5px #FF0000, 
+        0 0 10px #FFA500, 
+        0 0 15px #FFFF00,
+        0 0 20px #008000, 
+        0 0 25px #0000FF, 
+        0 0 30px #4B0082, 
+        0 0 35px #EE82EE; 
     }
 
     body.retro-theme {
-      --main-bg: #1a0033; /* Dark purplish-blue */
-      --main-text-color: #00ffcc; /* Neon Teal/Cyan */
-      --sidebar-bg: #0d001a; /* Even darker */
-      --sidebar-border: #ff0099; /* Hot Pink Neon */
+      --main-bg: #1a0033; 
+      --main-text-color: #00ffcc;
+      --sidebar-bg: #0d001a; 
+      --sidebar-border: #ff0099; 
       --link-color: #00ffcc;
-      --link-hover-color: #ffff00; /* Yellow Neon */
+      --link-hover-color: #ffff00; 
       --input-btn-bg: #26004d;
       --input-btn-border: #ff0099;
       --output-bg: #0d001a;
@@ -356,29 +349,28 @@
       --code-border: #ff0099;
       --button-hover-bg: #330066;
       --button-hover-border: #ffff00;
-      font-family: 'VT323', monospace; /* Ensure retro font */
-      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; /* Neon glow */
+      font-family: 'VT323', monospace; 
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; 
     }
 
     body.minecraft-theme {
-      --main-bg: #38761D; /* Dark grass green */
+      --main-bg: #38761D;
       --main-text-color: #FFFFFF;
-      --sidebar-bg: #6A4A3A; /* Brown dirt/wood */
-      --sidebar-border: #9B7653; /* Lighter wood/dirt */
-      --link-color: #90EE90; /* Light green */
+      --sidebar-bg: #6A4A3A; 
+      --sidebar-border: #9B7653; 
+      --link-color: #90EE90; 
       --link-hover-color: #FFFFFF;
-      --input-btn-bg: #2A520F; /* Darker green */
-      --input-btn-border: #A0A0A0; /* Stone grey */
-      --output-bg: #4E352B; /* Darker brown */
+      --input-btn-bg: #2A520F; 
+      --input-btn-border: #A0A0A0; 
+      --output-bg: #4E352B; 
       --output-border: #A0A0A0;
       --code-bg: #4E352B;
       --code-border: #A0A0A0;
-      --button-hover-bg: #5F854D; /* Slightly lighter green */
+      --button-hover-bg: #5F854D;
       --button-hover-border: #B0B0B0;
-      font-family: monospace; /* Keeping default monospace, as there's no pixelated Minecraft font easily available through Google Fonts without adding more complexity */
+      font-family: monospace; 
     }
 
-    /* Ensure text-shadow is off unless it's the terminal, rainbow or retro theme */
     body:not(.terminal-theme):not(.rainbow-theme):not(.retro-theme) {
         text-shadow: none !important;
     }
@@ -478,20 +470,17 @@
   </div>
 
   <script>
-    let isLevelOneComplete = false; // Flag to track Level 1 completion
+    let isLevelOneComplete = false; 
 
-    // Section switching
     document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.dataset.target;
 
-        // Hide all sections first
         document.querySelectorAll('.section').forEach(section => {
           section.classList.remove('active');
         });
 
-        // Handle themes section specifically
         if (targetId === 'themes') {
           if (isLevelOneComplete) {
             document.getElementById('themes-locked-message').style.display = 'none';
@@ -501,7 +490,6 @@
             document.getElementById('themes-options').style.display = 'none';
           }
         } else {
-          // For other sections, ensure theme options are hidden if user navigates away from themes
           if (document.getElementById('themes-options')) {
             document.getElementById('themes-options').style.display = 'none';
           }
@@ -536,7 +524,7 @@
       const result = document.getElementById('hackit-result');
       if (input === "trickz_master") {
         result.innerHTML = "<span style='color:lightgreen;'>✅ Correct! Welcome to Level 2...</span>";
-        isLevelOneComplete = true; // Set flag to true when Level 1 is completed
+        isLevelOneComplete = true;
         setTimeout(() => {
           document.getElementById('hackit').classList.remove('active');
           document.getElementById('hackit-level2').classList.add('active');
@@ -567,21 +555,15 @@
       }
     }
 
-    // Function to handle theme selection
     function applyTheme(themeName) {
-      // Remove all existing theme classes from the body
       document.body.classList.remove(
         'terminal-theme', 'ocean-blue-theme', 'fire-red-theme',
         'light-mode-theme', 'purple-theme', 'vanilla-theme',
-        // Add new themes here
         'rainbow-theme', 'retro-theme', 'minecraft-theme'
       );
 
-      // Add the new theme class
       document.body.classList.add(themeName + '-theme');
 
-      // You can add an alert for feedback or remove it if you prefer silent changes
-      // alert(`Theme "${themeName}" applied!`);
     }
   </script>
 </body>
