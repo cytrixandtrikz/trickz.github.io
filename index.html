@@ -31,14 +31,12 @@
             display: flex;
             min-height: 100vh;
         }
-
         html {
             height: 100%;
             background-color: black;
             background-image: none;
             background-size: 20px 20px;
         }
-
         .rocket {
             position: absolute;
             bottom: 100px;
@@ -51,7 +49,6 @@
             z-index: 10;
             animation: rocket-launch 3s ease forwards;
         }
-
         .rocket .window {
             position: absolute;
             top: 20px;
@@ -63,7 +60,6 @@
             border-radius: 50%;
             border: 2px solid #0cf;
         }
-
         .rocket .flame {
             position: absolute;
             top: 100%;
@@ -75,7 +71,6 @@
             border-radius: 50%;
             animation: flame-flicker 0.3s infinite;
         }
-
         @keyframes flame-flicker {
             0%, 100% {
                 background: orange;
@@ -86,7 +81,6 @@
                 height: 60px;
             }
         }
-
         @keyframes rocket-launch {
             0% {
                 transform: translateX(-50%) translateY(0);
@@ -95,7 +89,6 @@
                 transform: translateX(-50%) translateY(-200px);
             }
         }
-
         #loading-screen {
             position: fixed;
             top: 0;
@@ -106,14 +99,12 @@
             z-index: 1000;
             animation: fadeOut 1s ease 3s forwards;
         }
-
         @keyframes fadeOut {
             to {
                 opacity: 0;
                 visibility: hidden;
             }
         }
-
         .sidebar {
             width: 200px;
             background-color: var(--sidebar-bg);
@@ -122,36 +113,29 @@
             height: 100vh;
             z-index: 10;
         }
-
         .sidebar h1 {
             color: var(--link-hover-color);
         }
-
         .sidebar a {
             display: block;
             color: var(--link-color);
             text-decoration: none;
             margin: 20px 0;
         }
-
         .sidebar a:hover {
             color: var(--link-hover-color);
         }
-
         .content {
             flex-grow: 1;
             padding: 40px;
             overflow-y: auto;
         }
-
         .section {
             display: none;
         }
-
         .section.active {
             display: block;
         }
-
         #output-container {
             margin-top: 20px;
             background: var(--output-bg);
@@ -159,13 +143,11 @@
             height: calc(100vh - 280px);
             position: relative;
         }
-
         #output-frame {
             width: 100%;
             height: 100%;
             border: none;
         }
-
         input, button {
             background: var(--input-btn-bg);
             color: var(--main-text-color);
@@ -173,13 +155,11 @@
             padding: 6px 10px;
             margin: 5px 0;
         }
-
         button:hover {
             background: var(--button-hover-bg);
             border-color: var(--button-hover-border);
             cursor: pointer;
         }
-
         #code-area {
             background: var(--code-bg);
             color: var(--main-text-color);
@@ -188,7 +168,6 @@
             height: 300px;
             margin-top: 10px;
         }
-
         #welcome h2 {
             color: #7CFC00 !important;
             font-weight: bold;
@@ -210,7 +189,6 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0 auto 20px auto;
         }
-
         .theme-buttons button {
             display: block;
             width: 150px;
@@ -221,14 +199,12 @@
             border-radius: 5px;
             transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
-
         html.lethal-company-black-graph-lines {
             background-image:
                 repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(255, 0, 0, 0.2) 20px),
                 repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(255, 0, 0, 0.2) 20px);
             background-color: red;
         }
-
         body.terminal-theme {
             --main-bg: #000;
             --main-text-color: limegreen;
@@ -248,7 +224,6 @@
             text-shadow: 0 0 5px limegreen, 0 0 10px limegreen;
             background-color: var(--main-bg);
         }
-
         body.ocean-blue-theme {
             --main-bg: #000;
             --main-text-color: deepskyblue;
@@ -265,7 +240,6 @@
             --button-hover-bg: #1a1a1a;
             --button-hover-border: #00BFFF;
         }
-
         body.fire-red-theme {
             --main-bg: #000;
             --main-text-color: red;
@@ -282,7 +256,6 @@
             --button-hover-bg: #1a1a1a;
             --button-hover-border: #FF4500;
         }
-
         body.light-mode-theme {
             --main-bg: white;
             --main-text-color: black;
@@ -299,7 +272,6 @@
             --button-hover-bg: #F0F0F0;
             --button-hover-border: #999;
         }
-
         body.purple-theme {
             --main-bg: #000;
             --main-text-color: #8A2BE2;
@@ -316,7 +288,6 @@
             --button-hover-bg: #1a1a1a;
             --button-hover-border: #9932CC;
         }
-
         body.vanilla-theme {
             --main-bg: #F5F5DC;
             --main-text-color: black;
@@ -333,7 +304,6 @@
             --button-hover-bg: #EEE8AA;
             --button-hover-border: #C0C0C0;
         }
-
         body.rainbow-theme {
             --main-bg: #000;
             --main-text-color: white;
@@ -358,7 +328,6 @@
                 0 0 30px #4B0082,
                 0 0 35px #EE82EE;
         }
-
         body.retro-theme {
             --main-bg: #1a0033;
             --main-text-color: #00ffcc;
@@ -377,7 +346,6 @@
             font-family: 'VT323', monospace;
             text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
         }
-
         body.minecraft-theme {
             --main-bg: #38761D;
             --main-text-color: #FFFFFF;
@@ -395,7 +363,6 @@
             --button-hover-border: #B0B0B0;
             font-family: monospace;
         }
-
         body.lethal-company-theme {
             --main-bg: rgba(120, 0, 0, 0.9);
             --main-text-color: white;
@@ -415,11 +382,6 @@
             background-color: var(--main-bg);
             background-image: none;
         }
-
-        body:not(.terminal-theme):not(.rainbow-theme):not(.retro-theme) {
-            text-shadow: none !important;
-        }
-
         body.original-theme {
             --main-bg: black;
             --main-text-color: white;
@@ -438,12 +400,111 @@
             font-family: monospace;
             text-shadow: none;
         }
-
         .code-editor-actions {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
             margin-bottom: 10px;
+        }
+        #image-to-ascii {
+            margin-top: 20px;
+        }
+        #image-to-ascii input[type="file"] {
+            display: block;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: fit-content;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #ascii-output {
+            background: var(--output-bg);
+            border: 1px solid var(--output-border);
+            padding: 15px;
+            font-size: 8px;
+            line-height: 1;
+            overflow: auto;
+            max-height: 500px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin-top: 20px;
+            transition: text-shadow 0.2s ease;
+        }
+        #image-preview {
+            max-width: 100%;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        #image-preview img {
+            max-width: 200px;
+            height: auto;
+            border: 1px solid var(--sidebar-border);
+            display: block;
+            margin: 0 auto;
+        }
+        .ascii-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid var(--input-btn-border);
+            border-radius: 5px;
+        }
+        .ascii-controls div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ascii-controls label {
+            white-space: nowrap;
+            min-width: 80px;
+        }
+        .ascii-controls input[type="range"] {
+            flex-grow: 1;
+            width: auto;
+            margin: 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: var(--input-btn-border);
+            outline: none;
+            border-radius: 4px;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        .ascii-controls input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--link-hover-color);
+            cursor: pointer;
+        }
+        .ascii-controls input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--link-hover-color);
+            cursor: pointer;
+        }
+        .ascii-controls input[type="checkbox"] {
+            margin: 0;
+            width: auto;
+            height: auto;
+            border: none;
+            cursor: pointer;
+        }
+        #ascii-output.has-shadow {
+            text-shadow: 1px 1px 2px var(--main-bg);
+        }
+        #apply-best-ascii-settings {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: fit-content;
+            align-self: flex-start;
         }
     </style>
 </head>
@@ -454,7 +515,6 @@
             <div class="flame"></div>
         </div>
     </div>
-
     <div class="sidebar">
         <h1>🛠️ TRICKz</h1>
         <a href="#" data-target="welcome">✌️ Welcome!</a>
@@ -465,17 +525,15 @@
         <a href="https://discord.gg/4SYtwm8kgG" target="_blank">💬 Our Discord</a>
         <a href="https://cytrixandtrikz.github.io/vault.website.github.io/" target="_blank">🗃️ vault chat (vfc)</a>
         <a href="#" data-target="code-editor">💻 Coding</a>
-
+        <a href="#" data-target="image-to-ascii">🖼️ Image to ASCII</a>
         <p>© 2025</p>
     </div>
-
     <div class="content">
         <div id="welcome" class="section active">
             <h2>Welcome to TRICKz</h2>
             <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
             <a href="https://discord.gg/4SYtwm8kgG" target="_blank">Go check out our Discord</a>
         </div>
-
         <div id="code-editor" class="section">
             <h2>Select Your Language and Code</h2>
             <div class="language-buttons">
@@ -484,13 +542,11 @@
                 <button onclick="setLanguage('javascript')">JavaScript</button>
                 <button onclick="setLanguage('texteditor')">Text Editor</button>
             </div>
-
             <div class="code-editor-actions">
                 <button onclick="copyCode()">Copy Code</button>
                 <button onclick="triggerPasteFile()">Paste File</button>
                 <input type="file" id="file-input" style="display: none;" accept=".txt,.html,.css,.js">
             </div>
-
             <textarea id="code-area"></textarea>
             <button id="run-code-button" onclick="runCode()">Run Code</button>
             <div id="output-container">
@@ -498,7 +554,6 @@
             </div>
             <div id="error-msg" style="color:red;margin-top:10px;"></div>
         </div>
-
         <div id="hackit" class="section">
             <h2>HackIt! Level 1</h2>
             <p>Can you deencrypt the password from the HTML source code?</p>
@@ -506,7 +561,6 @@
             <button onclick="checkHackitLevel1()">Submit</button>
             <div id="hackit-result" style="margin-top:10px;"></div>
         </div>
-
         <div id="hackit-level2" class="section">
             <h2>HackIt! Level 2</h2>
             <p>Encrypt the following password and enter the result.</p>
@@ -515,7 +569,6 @@
             <button onclick="checkHackitLevel2()">Submit</button>
             <div id="level2-result" style="margin-top:10px;"></div>
         </div>
-
         <div id="themes" class="section">
             <h2>🎨 Themes</h2>
             <div id="themes-locked-message">
@@ -538,7 +591,6 @@
                 </div>
             </div>
         </div>
-
         <div id="recon" class="section">
             <h2>🕵️ Reconnaissance</h2>
             <p>Once you hack the account and get the encrypted password, you win. To win, you must paste both the encrypted password and the real password below:</p>
@@ -551,21 +603,41 @@
             <br><br>
             <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
         </div>
+        <div id="image-to-ascii" class="section">
+            <h2>🖼️ Image to ASCII Art</h2>
+            <p>Upload a still image and watch it transform into ASCII art!</p>
+            <input type="file" id="image-upload" accept="image/*">
+            <div id="image-preview"></div>
+            <div class="ascii-controls">
+                <div id="resolution-control">
+                    <label for="ascii-resolution-slider">Resolution:</label>
+                    <input type="range" id="ascii-resolution-slider" min="50" max="250" value="100">
+                </div>
+                <div id="contrast-control">
+                    <label for="contrast-slider">Contrast:</label>
+                    <input type="range" id="contrast-slider" min="0" max="200" value="100">
+                </div>
+                <div id="shadow-control">
+                    <input type="checkbox" id="shadow-toggle">
+                    <label for="shadow-toggle">Enable Shadow</label>
+                </div>
+                <button id="apply-best-ascii-settings">Best ASCII Settings</button>
+            </div>
+            <canvas id="image-canvas" style="display: none;"></canvas>
+            <pre id="ascii-output">Upload an image to see ASCII art here...</pre>
+        </div>
     </div>
-
     <script>
         let isLevelOneComplete = false;
         let currentLanguage = 'html';
-
+        let currentImage = null;
         document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.dataset.target;
-
                 document.querySelectorAll('.section').forEach(section => {
                     section.classList.remove('active');
                 });
-
                 if (targetId === 'themes') {
                     if (isLevelOneComplete) {
                         document.getElementById('themes-locked-message').style.display = 'none';
@@ -579,14 +651,12 @@
                         document.getElementById('themes-options').style.display = 'none';
                     }
                 }
-
                 document.getElementById(targetId).classList.add('active');
                 if (targetId === 'code-editor') {
                     setLanguage('html');
                 }
             });
         });
-
         function copyCode() {
             const codeArea = document.getElementById('code-area');
             codeArea.select();
@@ -599,51 +669,39 @@
                 alert('Failed to copy code. Please copy manually.');
             }
         }
-
         function triggerPasteFile() {
             document.getElementById('file-input').click();
         }
-
         document.getElementById('file-input').addEventListener('change', function(event) {
             const file = event.target.files[0];
             const codeArea = document.getElementById('code-area');
             const errorMsg = document.getElementById('error-msg');
             errorMsg.textContent = "";
-
             if (!file) {
                 return;
             }
-
             const allowedExtensions = ['.txt', '.html', '.css', '.js'];
             const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
-
             if (!allowedExtensions.includes(fileExtension)) {
                 errorMsg.textContent = "⚠️ Error: Only .txt, .html, .css, and .js files are accepted.";
                 codeArea.value = '';
                 return;
             }
-
             const reader = new FileReader();
-
             reader.onload = function(e) {
                 codeArea.value = e.target.result;
                 errorMsg.textContent = "";
             };
-
             reader.onerror = function() {
                 errorMsg.textContent = "⚠️ Error reading file.";
             };
-
             reader.readAsText(file);
         });
-
         function setLanguage(language) {
             const codeArea = document.getElementById('code-area');
             const runCodeButton = document.getElementById('run-code-button');
-
             codeArea.value = '';
             currentLanguage = language;
-
             if (language === 'texteditor') {
                 codeArea.placeholder = 'Write or paste your text here. This area functions as a simple text editor.';
                 runCodeButton.textContent = 'Show Text';
@@ -652,13 +710,11 @@
                 runCodeButton.textContent = 'Run Code';
             }
         }
-
         function runCode() {
             const code = document.getElementById('code-area').value;
             const frame = document.getElementById('output-frame');
             const errorMsg = document.getElementById('error-msg');
             errorMsg.textContent = "";
-
             try {
                 if (currentLanguage === 'texteditor') {
                     const textContent = `
@@ -694,13 +750,11 @@
                 errorMsg.textContent = "⚠️ hmm.. this code seems wrong";
             }
         }
-
         function escapeHTML(str) {
             const div = document.createElement('div');
             div.appendChild(document.createTextNode(str));
             return div.innerHTML;
         }
-
         function checkHackitLevel1() {
             const input = document.getElementById('hackit-answer').value.trim();
             const result = document.getElementById('hackit-result');
@@ -715,7 +769,6 @@
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
             }
         }
-
         function checkHackitLevel2() {
             const input = document.getElementById('level2-answer').value.trim();
             const result = document.getElementById('level2-result');
@@ -725,7 +778,6 @@
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
             }
         }
-
         function checkRecon() {
             const enc = document.getElementById('encrypted').value.trim();
             const pass = document.getElementById('realpass').value.trim();
@@ -736,28 +788,103 @@
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect, try again.</span>";
             }
         }
-
         function applyTheme(themeName) {
             const htmlElement = document.documentElement;
-
             document.body.classList.remove(
                 'terminal-theme', 'ocean-blue-theme', 'fire-red-theme',
                 'light-mode-theme', 'purple-theme', 'vanilla-theme',
                 'rainbow-theme', 'retro-theme', 'minecraft-theme', 'lethal-company-theme',
                 'original-theme'
             );
-
             htmlElement.classList.remove('lethal-company-black-graph-lines');
             htmlElement.style.backgroundImage = 'none';
             htmlElement.style.backgroundColor = 'black';
-
             document.body.classList.add(themeName + '-theme');
-
             if (themeName === 'lethal-company') {
                 htmlElement.classList.add('lethal-company-black-graph-lines');
                 htmlElement.style.backgroundColor = 'red';
             } else {
                 document.body.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--main-bg');
+            }
+        }
+        const imageUpload = document.getElementById('image-upload');
+        const imageCanvas = document.getElementById('image-canvas');
+        const asciiOutput = document.getElementById('ascii-output');
+        const imagePreview = document.getElementById('image-preview');
+        const asciiResolutionSlider = document.getElementById('ascii-resolution-slider');
+        const contrastSlider = document.getElementById('contrast-slider');
+        const shadowToggle = document.getElementById('shadow-toggle');
+        const applyBestSettingsBtn = document.getElementById('apply-best-ascii-settings');
+        const ctx = imageCanvas.getContext('2d');
+        const asciiCharacters = "@#%&B8WM*oahkbdpqwmLCIUYTXZASDFGHJKNEVczxyujft/|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+        imageUpload.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    currentImage = img;
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Image preview">`;
+                    generateAsciiArt();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+        asciiResolutionSlider.addEventListener('input', generateAsciiArt);
+        contrastSlider.addEventListener('input', generateAsciiArt);
+        shadowToggle.addEventListener('change', generateAsciiArt);
+        applyBestSettingsBtn.addEventListener('click', function() {
+            asciiResolutionSlider.value = 180;
+            contrastSlider.value = 120;
+            generateAsciiArt();
+        });
+        function generateAsciiArt() {
+            if (!currentImage) {
+                asciiOutput.textContent = "Upload an image to see ASCII art here...";
+                return;
+            }
+            try {
+                const img = currentImage;
+                const resolutionValue = parseInt(asciiResolutionSlider.value);
+                const contrastValue = parseInt(contrastSlider.value);
+                if (shadowToggle.checked) {
+                    asciiOutput.classList.add('has-shadow');
+                } else {
+                    asciiOutput.classList.remove('has-shadow');
+                }
+                const aspectRatio = img.width / img.height;
+                const outputWidth = resolutionValue;
+                const outputHeight = Math.max(1, Math.floor(outputWidth / aspectRatio / 2));
+                imageCanvas.width = outputWidth;
+                imageCanvas.height = outputHeight;
+                ctx.drawImage(img, 0, 0, outputWidth, outputHeight);
+                const imageData = ctx.getImageData(0, 0, outputWidth, outputHeight);
+                const pixels = imageData.data;
+                let ascii = '';
+                const contrastFactor = contrastValue / 100.0;
+                const gammaFactor = 2.2;
+                for (let y = 0; y < outputHeight; y++) {
+                    for (let x = 0; x < outputWidth; x++) {
+                        const index = (y * outputWidth + x) * 4;
+                        const r = pixels[index];
+                        const g = pixels[index + 1];
+                        const b = pixels[index + 2];
+                        let brightness = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                        brightness = Math.pow(brightness, gammaFactor);
+                        brightness = Math.max(0, Math.min(1, (brightness - 0.5) * contrastFactor + 0.5));
+                        const charIndex = Math.floor(brightness * (asciiCharacters.length - 1));
+                        ascii += asciiCharacters[charIndex];
+                    }
+                    ascii += '\n';
+                }
+                asciiOutput.textContent = ascii;
+            } catch (error) {
+                console.error("Error generating ASCII art:", error);
+                asciiOutput.textContent = "Error: Could not generate ASCII art. Please try a different image or check console for details.";
             }
         }
     </script>
