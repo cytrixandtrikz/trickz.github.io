@@ -1,12 +1,12 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8" />
-  <title>TRICKz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
-  <style>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <title>TRICKz</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" type="image/png" href="https://i.imgur.com/JtLlEFF.png"> <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+ <style>
   body {
   --main-bg: black;
   --main-text-color: white;
@@ -23,23 +23,20 @@
   --button-hover-bg: #333;
   --button-hover-border: #555;
 
-
-  background-color: var(--main-bg); 
+  background-color: var(--main-bg);
   color: var(--main-text-color);
   font-family: monospace;
   transition: background-color 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
   margin: 0;
-  display: flex; 
-  min-height: 100vh; 
+  display: flex;
+  min-height: 100vh;
   }
-
   html {
-    height: 100%; 
-    background-color: black; 
-    background-image: none; 
-    background-size: 20px 20px; 
+    height: 100%;
+    background-color: black;
+    background-image: none;
+    background-size: 20px 20px;
   }
-
   .rocket {
   position: absolute;
   bottom: 100px;
@@ -52,7 +49,6 @@
   z-index: 10;
   animation: rocket-launch 3s ease forwards;
   }
-
   .rocket .window {
   position: absolute;
   top: 20px;
@@ -64,7 +60,6 @@
   border-radius: 50%;
   border: 2px solid #0cf;
   }
-
   .rocket .flame {
   position: absolute;
   top: 100%;
@@ -76,17 +71,14 @@
   border-radius: 50%;
   animation: flame-flicker 0.3s infinite;
   }
-
   @keyframes flame-flicker {
   0%, 100% { background: orange; height: 80px; }
   50% { background: red; height: 60px; }
   }
-
   @keyframes rocket-launch {
   0% { transform: translateX(-50%) translateY(0); }
   100% { transform: translateX(-50%) translateY(-200px); }
   }
-
   #loading-screen {
   position: fixed;
   top: 0;
@@ -97,66 +89,55 @@
   z-index: 1000;
   animation: fadeOut 1s ease 3s forwards;
   }
-
   @keyframes fadeOut {
   to {
   opacity: 0;
   visibility: hidden;
   }
   }
-
   .sidebar {
   width: 200px;
   background-color: var(--sidebar-bg);
   padding: 20px;
   border-right: 1px solid var(--sidebar-border);
-  height: 100vh; 
+  height: 100vh;
   z-index: 10;
   }
-
   .sidebar h1 {
   color: var(--link-hover-color);
   }
-
   .sidebar a {
   display: block;
   color: var(--link-color);
   text-decoration: none;
   margin: 20px 0;
   }
-
   .sidebar a:hover {
   color: var(--link-hover-color);
   }
-
   .content {
   flex-grow: 1;
   padding: 40px;
   overflow-y: auto;
   }
-
   .section {
   display: none;
   }
-
   .section.active {
   display: block;
   }
-
   #output-container {
   margin-top: 20px;
   background: var(--output-bg);
   border: 1px solid var(--output-border);
   height: calc(100vh - 280px);
-  position: relative; 
+  position: relative;
   }
-
   #output-frame {
   width: 100%;
   height: 100%;
   border: none;
   }
-
   input, button {
   background: var(--input-btn-bg);
   color: var(--main-text-color);
@@ -164,13 +145,11 @@
   padding: 6px 10px;
   margin: 5px 0;
   }
-
   button:hover {
   background: var(--button-hover-bg);
   border-color: var(--button-hover-border);
   cursor: pointer;
   }
-
   #code-area {
   background: var(--code-bg);
   color: var(--main-text-color);
@@ -179,7 +158,6 @@
   height:300px;
   margin-top:10px;
   }
-
   #welcome h2 {
   color: #7CFC00 !important;
   font-weight: bold;
@@ -201,7 +179,6 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
   margin: 0 auto 20px auto;
   }
-
   .theme-buttons button {
   display: block;
   width: 150px;
@@ -212,14 +189,12 @@
   border-radius: 5px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
-
   html.lethal-company-black-graph-lines {
     background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 18px, black 20px), 
-      repeating-linear-gradient(90deg, transparent, transparent 18px, black 20px); 
-    background-color: black; 
+      repeating-linear-gradient(0deg, transparent, transparent 18px, black 20px),
+      repeating-linear-gradient(90deg, transparent, transparent 18px, black 20px);
+    background-color: black;
   }
-
 
   body.terminal-theme {
   --main-bg: #000;
@@ -239,9 +214,8 @@
 
   font-family: 'VT323', monospace;
   text-shadow: 0 0 5px limegreen, 0 0 10px limegreen;
-  background-color: var(--main-bg); 
+  background-color: var(--main-bg);
   }
-
   body.ocean-blue-theme {
   --main-bg: #000;
   --main-text-color: deepskyblue;
@@ -258,7 +232,6 @@
   --button-hover-bg: #1a1a1a;
   --button-hover-border: #00BFFF;
   }
-
   body.fire-red-theme {
   --main-bg: #000;
   --main-text-color: red;
@@ -275,7 +248,6 @@
   --button-hover-bg: #1a1a1a;
   --button-hover-border: #FF4500;
   }
-
   body.light-mode-theme {
   --main-bg: white;
   --main-text-color: black;
@@ -292,7 +264,6 @@
   --button-hover-bg: #F0F0F0;
   --button-hover-border: #999;
   }
-
   body.purple-theme {
   --main-bg: #000;
   --main-text-color: #8A2BE2;
@@ -309,7 +280,6 @@
   --button-hover-bg: #1a1a1a;
   --button-hover-border: #9932CC;
   }
-
   body.vanilla-theme {
   --main-bg: #F5F5DC;
   --main-text-color: black;
@@ -326,7 +296,6 @@
   --button-hover-bg: #EEE8AA;
   --button-hover-border: #C0C0C0;
   }
-
   body.rainbow-theme {
   --main-bg: #000;
   --main-text-color: white;
@@ -351,7 +320,6 @@
   0 0 30px #4B0082,
   0 0 35px #EE82EE;
   }
-
   body.retro-theme {
   --main-bg: #1a0033;
   --main-text-color: #00ffcc;
@@ -370,7 +338,6 @@
   font-family: 'VT323', monospace;
   text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
   }
-
   body.minecraft-theme {
   --main-bg: #38761D;
   --main-text-color: #FFFFFF;
@@ -388,32 +355,29 @@
   --button-hover-border: #B0B0B0;
   font-family: monospace;
   }
-
   body.lethal-company-theme {
-  --main-bg: rgba(120, 0, 0, 0.9); 
+  --main-bg: rgba(120, 0, 0, 0.9);
   --main-text-color: white;
-  --sidebar-bg: rgba(180, 0, 0, 0.7); 
+  --sidebar-bg: rgba(180, 0, 0, 0.7);
   --sidebar-border: #800000;
   --link-color: white;
   --link-hover-color: #ffcccc;
-  --input-btn-bg: rgba(150, 0, 0, 0.7); 
+  --input-btn-bg: rgba(150, 0, 0, 0.7);
   --input-btn-border: #800000;
-  --output-bg: rgba(150, 0, 0, 0.7); 
+  --output-bg: rgba(150, 0, 0, 0.7);
   --output-border: #800000;
-  --code-bg: rgba(150, 0, 0, 0.7); 
+  --code-bg: rgba(150, 0, 0, 0.7);
   --code-border: #800000;
   --button-hover-bg: #660000;
   --button-hover-border: #a00000;
   font-family: 'Rubik Dirt', monospace;
 
   background-color: var(--main-bg);
-  background-image: none; 
+  background-image: none;
   }
-
   body:not(.terminal-theme):not(.rainbow-theme):not(.retro-theme) {
   text-shadow: none !important;
   }
-
   /* Original Theme styles */
   body.original-theme {
     --main-bg: black;
@@ -430,21 +394,20 @@
     --code-border: #333;
     --button-hover-bg: #333;
     --button-hover-border: #555;
-    font-family: monospace; 
-    text-shadow: none; 
+    font-family: monospace;
+    text-shadow: none;
   }
-
   </style>
- </head>
- <body>
-  <div id="loading-screen">
+</head>
+<body>
+ <div id="loading-screen">
   <div class="rocket">
   <div class="window"></div>
   <div class="flame"></div>
   </div>
-  </div>
+ </div>
 
-  <div class="sidebar">
+ <div class="sidebar">
   <h1>🛠️ TRICKz</h1>
   <a href="#" data-target="welcome">✌️ Welcome!</a>
   <a href="https://cytrixandtrikz.github.io/fakewebpage.github.io/ " target="_blank">📉 fake webpage course</a>
@@ -455,11 +418,10 @@
   <a href="https://cytrixandtrikz.github.io/vault.website.github.io/" target="_blank">🗃️ vault chat (vfc)</a>
   <a href="#" data-target="code-editor">💻 Coding</a>
 
-
   <p>© 2025</p>
-  </div>
+ </div>
 
-  <div class="content">
+ <div class="content">
   <div id="welcome" class="section active">
   <h2>Welcome to TRICKz</h2>
   <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
@@ -531,9 +493,9 @@
   <br><br>
   <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
   </div>
-  </div>
+ </div>
 
-  <script>
+ <script>
   let isLevelOneComplete = false;
 
   document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
@@ -640,6 +602,6 @@
     document.body.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--main-bg');
   }
   }
-  </script>
- </body>
- </html>
+ </script>
+</body>
+</html>
