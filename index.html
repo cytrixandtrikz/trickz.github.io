@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <title>TRICKz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://i.imgur.com/JtLlEFF.png">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" type="image/png" href="https://i.imgur.com/JtLlEFF.png" />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet" />
     <style>
         body {
             --main-bg: black;
@@ -106,7 +109,7 @@
             }
         }
         .sidebar {
-            width: 200px;
+            width: 150px; /* Adjusted width for more content space */
             background-color: var(--sidebar-bg);
             padding: 20px;
             border-right: 1px solid var(--sidebar-border);
@@ -127,21 +130,26 @@
         }
         .content {
             flex-grow: 1;
-            padding: 40px;
+            padding: 40px; /* Increased padding for overall content area */
             overflow-y: auto;
+            display: flex; /* Enable flexbox */
+            flex-direction: column; /* Stack children vertically */
         }
         .section {
             display: none;
         }
         .section.active {
-            display: block;
+            display: block; /* This should be fine for simple stacking */
         }
         #output-container {
             margin-top: 20px;
             background: var(--output-bg);
             border: 1px solid var(--output-border);
-            height: calc(100vh - 280px);
+            min-height: 250px; /* Added a minimum height */
+            height: auto; /* Allow height to adjust */
             position: relative;
+            flex-grow: 1; /* Allow it to take available space */
+            display: flex; /* Make it a flex container to center iframe if needed */
         }
         #output-frame {
             width: 100%;
@@ -165,8 +173,11 @@
             color: var(--main-text-color);
             border: 1px solid var(--code-border);
             width: 100%;
-            height: 300px;
+            min-height: 350px; /* Increased minimum height for more coding space */
+            height: auto; /* Allow height to adjust */
             margin-top: 10px;
+            padding: 10px; /* Add some internal padding */
+            box-sizing: border-box; /* Include padding in width/height calculation */
         }
         #welcome h2 {
             color: #7CFC00 !important;
@@ -403,8 +414,9 @@
         .code-editor-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
+            gap: 15px; /* Increased gap between buttons */
             margin-bottom: 10px;
+            margin-top: 20px; /* Add some space above these buttons */
         }
         #image-to-ascii {
             margin-top: 20px;
@@ -506,6 +518,22 @@
             width: fit-content;
             align-self: flex-start;
         }
+        .language-buttons {
+            display: flex;
+            gap: 10px; /* Space out the language selection buttons */
+            margin-bottom: 15px; /* Space below language buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+        .language-buttons button,
+        .code-editor-actions button {
+            padding: 8px 15px;
+            border-radius: 4px; /* Slightly rounded corners */
+        }
+        #run-code-button {
+            margin-top: 15px;
+            margin-bottom: 20px; /* Space before output container */
+            padding: 10px 20px;
+        }
     </style>
 </head>
 <body>
@@ -527,16 +555,17 @@
         <a href="#" data-target="code-editor">💻 Coding</a>
         <a href="#" data-target="image-to-ascii">🖼️ Image to ASCII</a>
         <p>© 2025</p>
-        <p></p>
     </div>
     <div class="content">
         <div id="welcome" class="section active">
             <h2>Welcome to TRICKz</h2>
             <p>TRICKz is a private hacker collective where elite minds gather to share cutting-edge multitools, underground knowledge, and advanced tactics...</p>
             <a href="https://discord.gg/4SYtwm8kgG" target="_blank">Go check out our Discord</a>
-            <p></p>
-            <div class="flex items-center space-x-4"><a href="https://drive.usercontent.google.com/u/0/uc?id=1HXZaDdCrP2F_ADeSP8c7XrG0NcNmsnbJ&export=download" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
-            Download our app!
+            <div class="flex items-center space-x-4">
+                <a href="https://drive.usercontent.google.com/u/0/uc?id=1HXZaDdCrP2F_ADeSP8c7XrG0NcNmsnbJ&export=download" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
+                    Download our app!
+                </a>
+            </div>
         </div>
         <div id="code-editor" class="section">
             <h2>Select Your Language and Code</h2>
@@ -549,7 +578,7 @@
             <div class="code-editor-actions">
                 <button onclick="copyCode()">Copy Code</button>
                 <button onclick="triggerPasteFile()">Paste File</button>
-                <input type="file" id="file-input" style="display: none;" accept=".txt,.html,.css,.js">
+                <input type="file" id="file-input" style="display: none;" accept=".txt,.html,.css,.js" />
             </div>
             <textarea id="code-area"></textarea>
             <button id="run-code-button" onclick="runCode()">Run Code</button>
@@ -561,7 +590,7 @@
         <div id="hackit" class="section">
             <h2>HackIt! Level 1</h2>
             <p>Can you deencrypt the password from the HTML source code?</p>
-            <input type="text" id="hackit-answer" placeholder="Enter password...">
+            <input type="text" id="hackit-answer" placeholder="Enter password..." />
             <button onclick="checkHackitLevel1()">Submit</button>
             <div id="hackit-result" style="margin-top:10px;"></div>
         </div>
@@ -569,7 +598,7 @@
             <h2>HackIt! Level 2</h2>
             <p>Encrypt the following password and enter the result.</p>
             <p><strong>Password:</strong> phantom_gate</p>
-            <input type="text" id="level2-answer" placeholder="Enter encrypted password...">
+            <input type="text" id="level2-answer" placeholder="Enter encrypted password..." />
             <button onclick="checkHackitLevel2()">Submit</button>
             <div id="level2-result" style="margin-top:10px;"></div>
         </div>
@@ -598,31 +627,31 @@
         <div id="recon" class="section">
             <h2>🕵️ Reconnaissance</h2>
             <p>Once you hack the account and get the encrypted password, you win. To win, you must paste both the encrypted password and the real password below:</p>
-            <input type="text" id="encrypted" placeholder="Encrypted password (Base64)">
-            <br>
-            <input type="text" id="realpass" placeholder="Real password">
-            <br>
+            <input type="text" id="encrypted" placeholder="Encrypted password (Base64)" />
+            <br />
+            <input type="text" id="realpass" placeholder="Real password" />
+            <br />
             <button onclick="checkRecon()">Submit</button>
             <div id="recon-result" style="margin-top:10px;"></div>
-            <br><br>
+            <br /><br />
             <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
         </div>
         <div id="image-to-ascii" class="section">
             <h2>🖼️ Image to ASCII Art</h2>
             <strong><p>Upload a still image and it will be uploaded as text</p></strong>
-            <input type="file" id="image-upload" accept="image/*">
+            <input type="file" id="image-upload" accept="image/*" />
             <div id="image-preview"></div>
             <div class="ascii-controls">
                 <div id="resolution-control">
                     <label for="ascii-resolution-slider">Resolution:</label>
-                    <input type="range" id="ascii-resolution-slider" min="50" max="250" value="100">
+                    <input type="range" id="ascii-resolution-slider" min="50" max="250" value="100" />
                 </div>
                 <div id="contrast-control">
                     <label for="contrast-slider">Contrast:</label>
-                    <input type="range" id="contrast-slider" min="0" max="200" value="100">
+                    <input type="range" id="contrast-slider" min="0" max="200" value="100" />
                 </div>
                 <div id="shadow-control">
-                    <input type="checkbox" id="shadow-toggle">
+                    <input type="checkbox" id="shadow-toggle" />
                     <label for="shadow-toggle">Enable Shadow</label>
                 </div>
                 <button id="apply-best-ascii-settings">Best ASCII Settings</button>
@@ -635,9 +664,23 @@
         let isLevelOneComplete = false;
         let currentLanguage = 'html';
         let currentImage = null;
+
+        // ASCII Conversion Characters (Darker to Lighter)
+        const asciiCharacters = '@%#*+=-:. ';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial theme application (optional, but good for consistency)
+            applyTheme('original'); // Apply the original theme on load
+            // Check if level one was already completed from local storage on load
+            if (localStorage.getItem('isLevelOneComplete') === 'true') {
+                isLevelOneComplete = true;
+            }
+        });
+
         document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
+                console.log('Sidebar link clicked:', this.dataset.target); // Debugging log
                 const targetId = this.dataset.target;
                 document.querySelectorAll('.section').forEach(section => {
                     section.classList.remove('active');
@@ -651,16 +694,23 @@
                         document.getElementById('themes-options').style.display = 'none';
                     }
                 } else {
-                    if (document.getElementById('themes-options')) {
-                        document.getElementById('themes-options').style.display = 'none';
+                    // Hide theme options if navigating away from themes
+                    const themesOptions = document.getElementById('themes-options');
+                    if (themesOptions) {
+                        themesOptions.style.display = 'none';
+                    }
+                    const themesLockedMessage = document.getElementById('themes-locked-message');
+                    if (themesLockedMessage) {
+                        themesLockedMessage.style.display = 'none'; // Also hide the locked message
                     }
                 }
                 document.getElementById(targetId).classList.add('active');
                 if (targetId === 'code-editor') {
-                    setLanguage('html');
+                    setLanguage('html'); // Reset language to HTML when entering code editor
                 }
             });
         });
+
         function copyCode() {
             const codeArea = document.getElementById('code-area');
             codeArea.select();
@@ -673,24 +723,30 @@
                 alert('Failed to copy code. Please copy manually.');
             }
         }
+
         function triggerPasteFile() {
             document.getElementById('file-input').click();
         }
+
         document.getElementById('file-input').addEventListener('change', function(event) {
             const file = event.target.files[0];
             const codeArea = document.getElementById('code-area');
             const errorMsg = document.getElementById('error-msg');
             errorMsg.textContent = "";
+
             if (!file) {
                 return;
             }
+
             const allowedExtensions = ['.txt', '.html', '.css', '.js'];
             const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+
             if (!allowedExtensions.includes(fileExtension)) {
                 errorMsg.textContent = "⚠️ Error: Only .txt, .html, .css, and .js files are accepted.";
                 codeArea.value = '';
                 return;
             }
+
             const reader = new FileReader();
             reader.onload = function(e) {
                 codeArea.value = e.target.result;
@@ -701,10 +757,11 @@
             };
             reader.readAsText(file);
         });
+
         function setLanguage(language) {
             const codeArea = document.getElementById('code-area');
             const runCodeButton = document.getElementById('run-code-button');
-            codeArea.value = '';
+            codeArea.value = ''; // Clear code area when language changes
             currentLanguage = language;
             if (language === 'texteditor') {
                 codeArea.placeholder = 'Write or paste your text here. This area functions as a simple text editor.';
@@ -714,11 +771,13 @@
                 runCodeButton.textContent = 'Run Code';
             }
         }
+
         function runCode() {
             const code = document.getElementById('code-area').value;
             const frame = document.getElementById('output-frame');
             const errorMsg = document.getElementById('error-msg');
             errorMsg.textContent = "";
+
             try {
                 if (currentLanguage === 'texteditor') {
                     const textContent = `
@@ -754,17 +813,22 @@
                 errorMsg.textContent = "⚠️ hmm.. this code seems wrong";
             }
         }
+
         function escapeHTML(str) {
             const div = document.createElement('div');
             div.appendChild(document.createTextNode(str));
             return div.innerHTML;
         }
+
         function checkHackitLevel1() {
             const input = document.getElementById('hackit-answer').value.trim();
             const result = document.getElementById('hackit-result');
+            // The password is intentionally left in the HTML source for the hackit challenge.
             if (input === "trickz_master") {
                 result.innerHTML = "<span style='color:lightgreen;'>✅ Correct! Welcome to Level 2...</span>";
                 isLevelOneComplete = true;
+                // Store completion status in localStorage
+                localStorage.setItem('isLevelOneComplete', 'true');
                 setTimeout(() => {
                     document.getElementById('hackit').classList.remove('active');
                     document.getElementById('hackit-level2').classList.add('active');
@@ -773,15 +837,18 @@
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
             }
         }
+
         function checkHackitLevel2() {
             const input = document.getElementById('level2-answer').value.trim();
             const result = document.getElementById('level2-result');
+            // Base64 encoded "phantom_gate" is "cGhhbnRvbV9nYXRl"
             if (input === "cGhhbnRvbV9nYXRl") {
                 result.innerHTML = "<span style='color:lightgreen;'>🎉 You completed Level 2! More coming soon...</span>";
             } else {
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
             }
         }
+
         function checkRecon() {
             const enc = document.getElementById('encrypted').value.trim();
             const pass = document.getElementById('realpass').value.trim();
@@ -792,25 +859,39 @@
                 result.innerHTML = "<span style='color:red;'>❌ Incorrect, try again.</span>";
             }
         }
+
         function applyTheme(themeName) {
             const htmlElement = document.documentElement;
-            document.body.classList.remove(
+            const bodyElement = document.body;
+
+            // Remove all existing theme classes from body
+            bodyElement.classList.remove(
                 'terminal-theme', 'ocean-blue-theme', 'fire-red-theme',
                 'light-mode-theme', 'purple-theme', 'vanilla-theme',
                 'rainbow-theme', 'retro-theme', 'minecraft-theme', 'lethal-company-theme',
                 'original-theme'
             );
+            // Remove specific html classes
             htmlElement.classList.remove('lethal-company-black-graph-lines');
+
+            // Reset html background styles
             htmlElement.style.backgroundImage = 'none';
-            htmlElement.style.backgroundColor = 'black';
-            document.body.classList.add(themeName + '-theme');
+            htmlElement.style.backgroundColor = 'black'; // Default HTML background
+
+            // Apply the selected theme class to the body
+            bodyElement.classList.add(themeName + '-theme');
+
+            // Handle special background for lethal-company theme
             if (themeName === 'lethal-company') {
                 htmlElement.classList.add('lethal-company-black-graph-lines');
-                htmlElement.style.backgroundColor = 'red';
+                htmlElement.style.backgroundColor = 'red'; // This will be the grid background color
             } else {
-                document.body.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--main-bg');
+                // Ensure body's background color is consistent with the applied theme's variable
+                bodyElement.style.backgroundColor = getComputedStyle(bodyElement).getPropertyValue('--main-bg');
             }
         }
+
+        // --- Image to ASCII functionality ---
         const imageUpload = document.getElementById('image-upload');
         const imageCanvas = document.getElementById('image-canvas');
         const asciiOutput = document.getElementById('ascii-output');
@@ -820,77 +901,114 @@
         const shadowToggle = document.getElementById('shadow-toggle');
         const applyBestSettingsBtn = document.getElementById('apply-best-ascii-settings');
         const ctx = imageCanvas.getContext('2d');
-        const asciiCharacters = "@#%&B8WM*oahkbdpqwmLCIUYTXZASDFGHJKNEVczxyujft/|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
-        imageUpload.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (!file) {
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.onload = function() {
-                    currentImage = img;
-                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Image preview">`;
-                    generateAsciiArt();
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        });
+
+        imageUpload.addEventListener('change', handleImageUpload);
         asciiResolutionSlider.addEventListener('input', generateAsciiArt);
         contrastSlider.addEventListener('input', generateAsciiArt);
-        shadowToggle.addEventListener('change', generateAsciiArt);
-        applyBestSettingsBtn.addEventListener('click', function() {
-            asciiResolutionSlider.value = 180;
-            contrastSlider.value = 120;
-            generateAsciiArt();
-        });
-        function generateAsciiArt() {
-            if (!currentImage) {
-                asciiOutput.textContent = "Upload an image to see ASCII art here...";
-                return;
-            }
-            try {
-                const img = currentImage;
-                const resolutionValue = parseInt(asciiResolutionSlider.value);
-                const contrastValue = parseInt(contrastSlider.value);
-                if (shadowToggle.checked) {
-                    asciiOutput.classList.add('has-shadow');
-                } else {
-                    asciiOutput.classList.remove('has-shadow');
-                }
-                const aspectRatio = img.width / img.height;
-                const outputWidth = resolutionValue;
-                const outputHeight = Math.max(1, Math.floor(outputWidth / aspectRatio / 2));
-                imageCanvas.width = outputWidth;
-                imageCanvas.height = outputHeight;
-                ctx.drawImage(img, 0, 0, outputWidth, outputHeight);
-                const imageData = ctx.getImageData(0, 0, outputWidth, outputHeight);
-                const pixels = imageData.data;
-                let ascii = '';
-                const contrastFactor = contrastValue / 100.0;
-                const gammaFactor = 2.2;
-                for (let y = 0; y < outputHeight; y++) {
-                    for (let x = 0; x < outputWidth; x++) {
-                        const index = (y * outputWidth + x) * 4;
-                        const r = pixels[index];
-                        const g = pixels[index + 1];
-                        const b = pixels[index + 2];
-                        let brightness = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-                        brightness = Math.pow(brightness, gammaFactor);
-                        brightness = Math.max(0, Math.min(1, (brightness - 0.5) * contrastFactor + 0.5));
-                        const charIndex = Math.floor(brightness * (asciiCharacters.length - 1));
-                        ascii += asciiCharacters[charIndex];
-                    }
-                    ascii += '\n';
-                }
-                asciiOutput.textContent = ascii;
-            } catch (error) {
-                console.error("Error generating ASCII art:", error);
-                asciiOutput.textContent = "Error: Could not generate ASCII art. Please try a different image or check console for details.";
+        shadowToggle.addEventListener('change', toggleShadow);
+        applyBestSettingsBtn.addEventListener('click', applyBestAsciiSettings);
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        currentImage = img;
+                        imagePreview.innerHTML = `<img src="${e.target.result}" alt="Image preview" />`;
+                        generateAsciiArt(); // Generate ASCII art immediately after image loads
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                currentImage = null;
+                imagePreview.innerHTML = '';
+                asciiOutput.textContent = 'Upload an image to see ASCII art here...';
             }
         }
+
+        function generateAsciiArt() {
+            if (!currentImage) {
+                asciiOutput.textContent = 'Upload an image to see ASCII art here...';
+                return;
+            }
+
+            const resolution = parseInt(asciiResolutionSlider.value);
+            const contrast = parseInt(contrastSlider.value);
+
+            // Calculate target width and height based on resolution
+            const aspectRatio = currentImage.width / currentImage.height;
+            let targetWidth = resolution;
+            let targetHeight = Math.round(resolution / aspectRatio * 0.55); // Adjust for character aspect ratio
+
+            // Ensure minimum dimensions to prevent too small output
+            if (targetWidth < 50) targetWidth = 50;
+            if (targetHeight < 25) targetHeight = 25;
+
+            imageCanvas.width = targetWidth;
+            imageCanvas.height = targetHeight;
+
+            ctx.drawImage(currentImage, 0, 0, targetWidth, targetHeight);
+            const imageData = ctx.getImageData(0, 0, targetWidth, targetHeight);
+            const pixels = imageData.data;
+
+            let ascii = '';
+            for (let i = 0; i < pixels.length; i += 4) {
+                const r = pixels[i];
+                const g = pixels[i + 1];
+                const b = pixels[i + 2];
+
+                // Calculate grayscale value
+                const grayscale = (r * 0.2126 + g * 0.7152 + b * 0.0722);
+
+                // Apply contrast
+                const contrastedGrayscale = (grayscale - 128) * (contrast / 100) + 128;
+                const clampedGrayscale = Math.max(0, Math.min(255, contrastedGrayscale));
+
+                // Map grayscale to ASCII character
+                const charIndex = Math.floor(clampedGrayscale / 255 * (asciiCharacters.length - 1));
+                ascii += asciiCharacters[charIndex];
+
+                if ((i / 4 + 1) % targetWidth === 0) {
+                    ascii += '\n'; // Add newline at the end of each row
+                }
+            }
+            asciiOutput.textContent = ascii;
+        }
+
+        function toggleShadow() {
+            asciiOutput.classList.toggle('has-shadow', shadowToggle.checked);
+        }
+
+        function applyBestAsciiSettings() {
+            asciiResolutionSlider.value = 150; // A good balance
+            contrastSlider.value = 180; // Enhances contrast for better character differentiation
+            shadowToggle.checked = true;
+            generateAsciiArt(); // Re-generate with new settings
+            toggleShadow(); // Apply shadow
+        }
+
+        // --- Loading screen logic ---
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+
+            // After the rocket animation, fade out the loading screen
+            loadingScreen.addEventListener('animationend', (event) => {
+                if (event.animationName === 'fadeOut') {
+                    loadingScreen.style.display = 'none';
+                    // Show the main content once loading is complete
+                    document.querySelector('.content').style.display = 'flex';
+                    document.querySelector('.sidebar').style.display = 'block';
+                }
+            });
+        });
+
+        // Initialize display of content and sidebar (they might be hidden by CSS initially for loading screen)
+        // This ensures they are hidden until the loading screen completes.
+        document.querySelector('.content').style.display = 'none';
+        document.querySelector('.sidebar').style.display = 'none';
     </script>
 </body>
 </html>
