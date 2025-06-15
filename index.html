@@ -109,7 +109,7 @@
             }
         }
         .sidebar {
-            width: 150px; /* Adjusted width for more content space */
+            width: 150px;
             background-color: var(--sidebar-bg);
             padding: 20px;
             border-right: 1px solid var(--sidebar-border);
@@ -130,26 +130,26 @@
         }
         .content {
             flex-grow: 1;
-            padding: 40px; /* Increased padding for overall content area */
+            padding: 40px;
             overflow-y: auto;
-            display: flex; /* Enable flexbox */
-            flex-direction: column; /* Stack children vertically */
+            display: flex;
+            flex-direction: column;
         }
         .section {
             display: none;
         }
         .section.active {
-            display: block; /* This should be fine for simple stacking */
+            display: block;
         }
         #output-container {
             margin-top: 20px;
             background: var(--output-bg);
             border: 1px solid var(--output-border);
-            min-height: 250px; /* Added a minimum height */
-            height: auto; /* Allow height to adjust */
+            min-height: 250px;
+            height: auto;
             position: relative;
-            flex-grow: 1; /* Allow it to take available space */
-            display: flex; /* Make it a flex container to center iframe if needed */
+            flex-grow: 1;
+            display: flex;
         }
         #output-frame {
             width: 100%;
@@ -173,11 +173,11 @@
             color: var(--main-text-color);
             border: 1px solid var(--code-border);
             width: 100%;
-            min-height: 350px; /* Increased minimum height for more coding space */
-            height: auto; /* Allow height to adjust */
+            min-height: 350px;
+            height: auto;
             margin-top: 10px;
-            padding: 10px; /* Add some internal padding */
-            box-sizing: border-box; /* Include padding in width/height calculation */
+            padding: 10px;
+            box-sizing: border-box;
         }
         #welcome h2 {
             color: #7CFC00 !important;
@@ -189,7 +189,8 @@
                 0 0 10px #32CD32,
                 0 0 20px #32CD32,
                 0 0 30px #ADFF2F,
-                0 0 40px #00FF00 !important;
+                0 0
+                40px #00FF00 !important;
             letter-spacing: 1.5px;
             padding: 10px 0;
             border-radius: 0;
@@ -335,7 +336,8 @@
                 0 0 10px #FFA500,
                 0 0 15px #FFFF00,
                 0 0 20px #008000,
-                0 0 25px #0000FF,
+                0 0
+                25px #0000FF,
                 0 0 30px #4B0082,
                 0 0 35px #EE82EE;
         }
@@ -414,9 +416,9 @@
         .code-editor-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 15px; /* Increased gap between buttons */
+            gap: 15px;
             margin-bottom: 10px;
-            margin-top: 20px; /* Add some space above these buttons */
+            margin-top: 20px;
         }
         #image-to-ascii {
             margin-top: 20px;
@@ -520,18 +522,18 @@
         }
         .language-buttons {
             display: flex;
-            gap: 10px; /* Space out the language selection buttons */
-            margin-bottom: 15px; /* Space below language buttons */
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         .language-buttons button,
         .code-editor-actions button {
             padding: 8px 15px;
-            border-radius: 4px; /* Slightly rounded corners */
+            border-radius: 4px;
         }
         #run-code-button {
             margin-top: 15px;
-            margin-bottom: 20px; /* Space before output container */
+            margin-bottom: 20px;
             padding: 10px 20px;
         }
     </style>
@@ -563,8 +565,7 @@
             <a href="https://discord.gg/4SYtwm8kgG" target="_blank">Go check out our Discord</a>
             <div class="flex items-center space-x-4">
                 <a href="https://drive.usercontent.google.com/u/0/uc?id=1HXZaDdCrP2F_ADeSP8c7XrG0NcNmsnbJ&export=download" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
-                    Download our app! <a>app version - 1.1</a>
-                <a>website version - 2.6</a>
+                    Download our app!
                 </a>
             </div>
         </div>
@@ -579,7 +580,8 @@
             <div class="code-editor-actions">
                 <button onclick="copyCode()">Copy Code</button>
                 <button onclick="triggerPasteFile()">Paste File</button>
-                <input type="file" id="file-input" style="display: none;" accept=".txt,.html,.css,.js" />
+                <input type="file" id="file-input" style="display: none;"
+                accept=".txt,.html,.css,.js" />
             </div>
             <textarea id="code-area"></textarea>
             <button id="run-code-button" onclick="runCode()">Run Code</button>
@@ -589,14 +591,16 @@
             <div id="error-msg" style="color:red;margin-top:10px;"></div>
         </div>
         <div id="hackit" class="section">
-            <h2>HackIt! Level 1</h2>
+            <h2>HackIt!
+            Level 1</h2>
             <p>Can you deencrypt the password from the HTML source code?</p>
             <input type="text" id="hackit-answer" placeholder="Enter password..." />
             <button onclick="checkHackitLevel1()">Submit</button>
             <div id="hackit-result" style="margin-top:10px;"></div>
         </div>
         <div id="hackit-level2" class="section">
-            <h2>HackIt! Level 2</h2>
+            <h2>HackIt!
+            Level 2</h2>
             <p>Encrypt the following password and enter the result.</p>
             <p><strong>Password:</strong> phantom_gate</p>
             <input type="text" id="level2-answer" placeholder="Enter encrypted password..." />
@@ -606,7 +610,8 @@
         <div id="themes" class="section">
             <h2>🎨 Themes</h2>
             <div id="themes-locked-message">
-                <p style="color: yellow;">Themes is locked! To unlock themes, you must first complete HackIt! Level One!</p>
+                <p style="color: yellow;">Themes is locked!
+                To unlock themes, you must first complete HackIt! Level One!</p>
             </div>
             <div id="themes-options" style="display: none;">
                 <p>Choose your theme:</p>
@@ -627,20 +632,23 @@
         </div>
         <div id="recon" class="section">
             <h2>🕵️ Reconnaissance</h2>
-            <p>Once you hack the account and get the encrypted password, you win. To win, you must paste both the encrypted password and the real password below:</p>
+            <p>Once you hack the account and get the encrypted password, you win.
+            To win, you must paste both the encrypted password and the real password below:</p>
             <input type="text" id="encrypted" placeholder="Encrypted password (Base64)" />
             <br />
             <input type="text" id="realpass" placeholder="Real password" />
             <br />
             <button onclick="checkRecon()">Submit</button>
-            <div id="recon-result" style="margin-top:10px;"></div>
+            <div
+            id="recon-result" style="margin-top:10px;"></div>
             <br /><br />
             <button onclick="window.open('https://cytrixandtrikz.github.io/instawam.github.io/', '_blank')">Start</button>
         </div>
         <div id="image-to-ascii" class="section">
             <h2>🖼️ Image to ASCII Art</h2>
             <strong><p>Upload a still image and it will be uploaded as text</p></strong>
-            <input type="file" id="image-upload" accept="image/*" />
+            <input type="file" id="image-upload"
+            accept="image/*" />
             <div id="image-preview"></div>
             <div class="ascii-controls">
                 <div id="resolution-control">
@@ -666,22 +674,20 @@
         let currentLanguage = 'html';
         let currentImage = null;
 
-        // ASCII Conversion Characters (Darker to Lighter)
-        const asciiCharacters = '@%#*+=-:. ';
+        const asciiCharacters = '@%#*+=-:.
+';
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Initial theme application (optional, but good for consistency)
-            applyTheme('original'); // Apply the original theme on load
-            // Check if level one was already completed from local storage on load
+            applyTheme('original');
             if (localStorage.getItem('isLevelOneComplete') === 'true') {
-                isLevelOneComplete = true;
+                isLevelOneComplete
+                = true;
             }
         });
-
         document.querySelectorAll('.sidebar a[data-target]').forEach(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
-                console.log('Sidebar link clicked:', this.dataset.target); // Debugging log
+                console.log('Sidebar link clicked:', this.dataset.target);
                 const targetId = this.dataset.target;
                 document.querySelectorAll('.section').forEach(section => {
                     section.classList.remove('active');
@@ -695,19 +701,18 @@
                         document.getElementById('themes-options').style.display = 'none';
                     }
                 } else {
-                    // Hide theme options if navigating away from themes
                     const themesOptions = document.getElementById('themes-options');
                     if (themesOptions) {
                         themesOptions.style.display = 'none';
                     }
                     const themesLockedMessage = document.getElementById('themes-locked-message');
                     if (themesLockedMessage) {
-                        themesLockedMessage.style.display = 'none'; // Also hide the locked message
+                        themesLockedMessage.style.display = 'none';
                     }
                 }
                 document.getElementById(targetId).classList.add('active');
                 if (targetId === 'code-editor') {
-                    setLanguage('html'); // Reset language to HTML when entering code editor
+                    setLanguage('html');
                 }
             });
         });
@@ -751,7 +756,8 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 codeArea.value = e.target.result;
-                errorMsg.textContent = "";
+                errorMsg.textContent
+                = "";
             };
             reader.onerror = function() {
                 errorMsg.textContent = "⚠️ Error reading file.";
@@ -762,10 +768,11 @@
         function setLanguage(language) {
             const codeArea = document.getElementById('code-area');
             const runCodeButton = document.getElementById('run-code-button');
-            codeArea.value = ''; // Clear code area when language changes
+            codeArea.value = '';
             currentLanguage = language;
             if (language === 'texteditor') {
-                codeArea.placeholder = 'Write or paste your text here. This area functions as a simple text editor.';
+                codeArea.placeholder = 'Write or paste your text here.
+                This area functions as a simple text editor.';
                 runCodeButton.textContent = 'Show Text';
             } else {
                 codeArea.placeholder = 'Write your ' + language.toUpperCase() + ' code here...';
@@ -778,7 +785,6 @@
             const frame = document.getElementById('output-frame');
             const errorMsg = document.getElementById('error-msg');
             errorMsg.textContent = "";
-
             try {
                 if (currentLanguage === 'texteditor') {
                     const textContent = `
@@ -824,11 +830,9 @@
         function checkHackitLevel1() {
             const input = document.getElementById('hackit-answer').value.trim();
             const result = document.getElementById('hackit-result');
-            // The password is intentionally left in the HTML source for the hackit challenge.
             if (input === "trickz_master") {
                 result.innerHTML = "<span style='color:lightgreen;'>✅ Correct! Welcome to Level 2...</span>";
                 isLevelOneComplete = true;
-                // Store completion status in localStorage
                 localStorage.setItem('isLevelOneComplete', 'true');
                 setTimeout(() => {
                     document.getElementById('hackit').classList.remove('active');
@@ -842,7 +846,6 @@
         function checkHackitLevel2() {
             const input = document.getElementById('level2-answer').value.trim();
             const result = document.getElementById('level2-result');
-            // Base64 encoded "phantom_gate" is "cGhhbnRvbV9nYXRl"
             if (input === "cGhhbnRvbV9nYXRl") {
                 result.innerHTML = "<span style='color:lightgreen;'>🎉 You completed Level 2! More coming soon...</span>";
             } else {
@@ -865,34 +868,25 @@
             const htmlElement = document.documentElement;
             const bodyElement = document.body;
 
-            // Remove all existing theme classes from body
             bodyElement.classList.remove(
                 'terminal-theme', 'ocean-blue-theme', 'fire-red-theme',
                 'light-mode-theme', 'purple-theme', 'vanilla-theme',
                 'rainbow-theme', 'retro-theme', 'minecraft-theme', 'lethal-company-theme',
                 'original-theme'
             );
-            // Remove specific html classes
             htmlElement.classList.remove('lethal-company-black-graph-lines');
-
-            // Reset html background styles
             htmlElement.style.backgroundImage = 'none';
-            htmlElement.style.backgroundColor = 'black'; // Default HTML background
+            htmlElement.style.backgroundColor = 'black';
 
-            // Apply the selected theme class to the body
             bodyElement.classList.add(themeName + '-theme');
-
-            // Handle special background for lethal-company theme
             if (themeName === 'lethal-company') {
                 htmlElement.classList.add('lethal-company-black-graph-lines');
-                htmlElement.style.backgroundColor = 'red'; // This will be the grid background color
+                htmlElement.style.backgroundColor = 'red';
             } else {
-                // Ensure body's background color is consistent with the applied theme's variable
                 bodyElement.style.backgroundColor = getComputedStyle(bodyElement).getPropertyValue('--main-bg');
             }
         }
 
-        // --- Image to ASCII functionality ---
         const imageUpload = document.getElementById('image-upload');
         const imageCanvas = document.getElementById('image-canvas');
         const asciiOutput = document.getElementById('ascii-output');
@@ -918,7 +912,7 @@
                     img.onload = function() {
                         currentImage = img;
                         imagePreview.innerHTML = `<img src="${e.target.result}" alt="Image preview" />`;
-                        generateAsciiArt(); // Generate ASCII art immediately after image loads
+                        generateAsciiArt();
                     };
                     img.src = e.target.result;
                 };
@@ -939,12 +933,10 @@
             const resolution = parseInt(asciiResolutionSlider.value);
             const contrast = parseInt(contrastSlider.value);
 
-            // Calculate target width and height based on resolution
             const aspectRatio = currentImage.width / currentImage.height;
             let targetWidth = resolution;
-            let targetHeight = Math.round(resolution / aspectRatio * 0.55); // Adjust for character aspect ratio
+            let targetHeight = Math.round(resolution / aspectRatio * 0.55);
 
-            // Ensure minimum dimensions to prevent too small output
             if (targetWidth < 50) targetWidth = 50;
             if (targetHeight < 25) targetHeight = 25;
 
@@ -960,20 +952,15 @@
                 const r = pixels[i];
                 const g = pixels[i + 1];
                 const b = pixels[i + 2];
-
-                // Calculate grayscale value
                 const grayscale = (r * 0.2126 + g * 0.7152 + b * 0.0722);
-
-                // Apply contrast
                 const contrastedGrayscale = (grayscale - 128) * (contrast / 100) + 128;
                 const clampedGrayscale = Math.max(0, Math.min(255, contrastedGrayscale));
 
-                // Map grayscale to ASCII character
                 const charIndex = Math.floor(clampedGrayscale / 255 * (asciiCharacters.length - 1));
                 ascii += asciiCharacters[charIndex];
 
                 if ((i / 4 + 1) % targetWidth === 0) {
-                    ascii += '\n'; // Add newline at the end of each row
+                    ascii += '\n';
                 }
             }
             asciiOutput.textContent = ascii;
@@ -984,30 +971,24 @@
         }
 
         function applyBestAsciiSettings() {
-            asciiResolutionSlider.value = 150; // A good balance
-            contrastSlider.value = 180; // Enhances contrast for better character differentiation
+            asciiResolutionSlider.value = 150;
+            contrastSlider.value = 180;
             shadowToggle.checked = true;
-            generateAsciiArt(); // Re-generate with new settings
-            toggleShadow(); // Apply shadow
+            generateAsciiArt();
+            toggleShadow();
         }
 
-        // --- Loading screen logic ---
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading-screen');
 
-            // After the rocket animation, fade out the loading screen
             loadingScreen.addEventListener('animationend', (event) => {
                 if (event.animationName === 'fadeOut') {
                     loadingScreen.style.display = 'none';
-                    // Show the main content once loading is complete
                     document.querySelector('.content').style.display = 'flex';
                     document.querySelector('.sidebar').style.display = 'block';
                 }
             });
         });
-
-        // Initialize display of content and sidebar (they might be hidden by CSS initially for loading screen)
-        // This ensures they are hidden until the loading screen completes.
         document.querySelector('.content').style.display = 'none';
         document.querySelector('.sidebar').style.display = 'none';
     </script>
