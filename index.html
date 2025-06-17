@@ -566,13 +566,13 @@
             <div class="flex items-center space-x-4">
                 <a href="https://drive.usercontent.google.com/download?id=1ABQuvJPQJYe-gmGO5VC3ZlRnid_T-gyA&export=download&authuser=0" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
                     Download our app!
-                <a>...</a>
+                </a>
                 <a href="https://drive.usercontent.google.com/u/0/uc?id=1Oxk6_7fKvA8P5kSL5PRDFKTa74NC4zca&export=download&authuser=0" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
                     Download our chatroom!
-                <a>...</a>
+                </a>
                 <a href="https://drive.usercontent.google.com/download?id=1Az9ds1ZnK3cObS9bzurdND51F6_nqDH1&export=download&authuser=0" download target="_blank" class="text-blue-600 text-3xl font-semibold hover:text-blue-700 transition duration-300 ease-in-out">
                     Download our game!
-                    
+                </a>
             </div>
         </div>
         <div id="code-editor" class="section">
@@ -675,7 +675,6 @@
         let currentLanguage = 'html';
         let currentImage = null;
         const asciiCharacters = '@%#*+=-:.';
-
         function applyTheme(themeName) {
             document.body.className = '';
             document.documentElement.className = '';
@@ -764,10 +763,12 @@
             codeArea.setSelectionRange(0, 99999);
             try {
                 document.execCommand('copy');
-                alert('Code copied to clipboard!');
+                // Removed alert, using console log for now
+                console.log('Code copied to clipboard!');
             } catch (err) {
                 console.error('Failed to copy code: ', err);
-                alert('Failed to copy code. Please copy manually.');
+                // Removed alert, using console log for now
+                console.log('Failed to copy code. Please copy manually.');
             }
         }
 
@@ -851,12 +852,78 @@
                         </html>
                     `;
                     frame.srcdoc = textContent;
-                } else {
+                } else if (currentLanguage === 'html') {
                     frame.srcdoc = code;
+                } else if (currentLanguage === 'css') {
+                    frame.srcdoc = `
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>CSS Output</title>
+                            <style>
+                                body { background-color: #333; color: white; font-family: monospace; padding: 20px; }
+                                /* Your CSS will be applied here */
+                                ${code}
+                                .css-example-box {
+                                    width: 100px;
+                                    height: 100px;
+                                    background-color: blue;
+                                    margin-top: 20px;
+                                    border: 2px solid cyan;
+                                    text-align: center;
+                                    line-height: 100px;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <h1>CSS Output</h1>
+                            <p>This is a simple HTML page to preview your CSS.</p>
+                            <div class="css-example-box">Example Box</div>
+                            <p>Try changing the background, color, or other styles of 'body' or '.css-example-box'.</p>
+                        </body>
+                        </html>
+                    `;
+                } else if (currentLanguage === 'javascript') {
+                    frame.srcdoc = `
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>JavaScript Output</title>
+                            <style>
+                                body { background-color: #333; color: white; font-family: monospace; padding: 20px; }
+                                #js-output { border: 1px solid limegreen; padding: 10px; margin-top: 20px; min-height: 50px; background-color: #111; }
+                            </style>
+                        </head>
+                        <body>
+                            <h1>JavaScript Output</h1>
+                            <p>Open the browser console (F12) to see console logs.</p>
+                            <div id="js-output"></div>
+                            <script>
+                                try {
+                                    // Redirect console.log to a div for display within the iframe
+                                    const originalLog = console.log;
+                                    const outputDiv = document.getElementById('js-output');
+                                    console.log = function(...args) {
+                                        originalLog.apply(console, args);
+                                        outputDiv.innerHTML += args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ') + '<br>';
+                                    };
+                                    // Your JavaScript code
+                                    ${code}
+                                } catch (e) {
+                                    const parentErrorMsg = window.parent.document.getElementById('error-msg');
+                                    if (parentErrorMsg) {
+                                        parentErrorMsg.textContent = '⚠️ JavaScript Error: ' + e.message;
+                                    }
+                                    // Also log to the iframe's console
+                                    console.error('JavaScript Error in iframe:', e);
+                                }
+                            </script>
+                        </body>
+                        </html>
+                    `;
                 }
-            } catch (err) {
-                frame.srcdoc = `<p style="color:red;font-family:monospace;">⚠️ hmm.. this code seems wrong</p>`;
-                errorMsg.textContent = "⚠️ hmm.. this code seems wrong";
+            } catch (e) {
+                errorMsg.textContent = '⚠️ Error rendering code: ' + e.message;
             }
         }
 
@@ -866,102 +933,124 @@
             return div.innerHTML;
         }
 
+        // HackIt! Level 1
         function checkHackitLevel1() {
-            const input = document.getElementById('hackit-answer').value.trim();
-            const result = document.getElementById('hackit-result');
-            if (input === "trickz_master") {
-                result.innerHTML = "<span style='color:lightgreen;'>✅ Correct! Welcome to Level 2...</span>";
+            const answer = document.getElementById('hackit-answer').value.trim();
+            const resultDiv = document.getElementById('hackit-result');
+            // The password is 'hidden_pw' - intentionally in the source for the challenge
+            if (answer === 'hidden_pw') {
+                resultDiv.style.color = 'limegreen';
+                resultDiv.textContent = '✅ Correct! Level 1 Complete! Themes are now unlocked!';
                 isLevelOneComplete = true;
                 localStorage.setItem('isLevelOneComplete', 'true');
-                setTimeout(() => {
-                    document.getElementById('hackit').classList.remove('active');
-                    document.getElementById('hackit-level2').classList.add('active');
-                }, 1500);
+                // Optionally auto-switch to themes section
+                document.getElementById('themes').classList.add('active');
+                document.getElementById('hackit').classList.remove('active');
+                document.getElementById('themes-locked-message').style.display = 'none';
+                document.getElementById('themes-options').style.display = 'block';
             } else {
-                result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
+                resultDiv.style.color = 'red';
+                resultDiv.textContent = '❌ Incorrect. Try again!';
             }
         }
 
+        // HackIt! Level 2
         function checkHackitLevel2() {
-            const input = document.getElementById('level2-answer').value.trim();
-            const result = document.getElementById('level2-result');
-            if (input === "cGhhbnRvbV9nYXRl") {
-                result.innerHTML = "<span style='color:lightgreen;'>🎉 You completed Level 2! More coming soon...</span>";
+            const password = 'phantom_gate';
+            const encryptedPassword = btoa(password); // Base64 encode
+            const answer = document.getElementById('level2-answer').value.trim();
+            const resultDiv = document.getElementById('level2-result');
+
+            if (answer === encryptedPassword) {
+                resultDiv.style.color = 'limegreen';
+                resultDiv.textContent = `✅ Correct! Level 2 Complete! The encrypted password is: ${encryptedPassword}`;
             } else {
-                result.innerHTML = "<span style='color:red;'>❌ Incorrect. Try again.</span>";
+                resultDiv.style.color = 'red';
+                resultDiv.textContent = `❌ Incorrect. The encrypted password is: ${encryptedPassword}.`;
             }
         }
 
+        // Reconnaissance
         function checkRecon() {
-            const enc = document.getElementById('encrypted').value.trim();
-            const pass = document.getElementById('realpass').value.trim();
-            const result = document.getElementById('recon-result');
-            if (enc === "c2VjdXJlcGFzc3dvcmQyMg==" && pass === "securepassword22") {
-                result.innerHTML = "<span style='color:lightgreen; font-weight:bold;'>🎉 You win!!</span>";
+            const encryptedInput = document.getElementById('encrypted').value.trim();
+            const realPassInput = document.getElementById('realpass').value.trim();
+            const reconResultDiv = document.getElementById('recon-result');
+
+            // Hardcoded for demonstration, in a real scenario, this would involve actual hacking/recon
+            const correctEncrypted = btoa('real_password_here'); // Example, replace with actual target
+            const correctRealPass = 'real_password_here'; // Example, replace with actual target
+
+            if (encryptedInput === correctEncrypted && realPassInput === correctRealPass) {
+                reconResultDiv.style.color = 'limegreen';
+                reconResultDiv.textContent = '🎉 Congratulations! You\'ve completed the Reconnaissance challenge!';
             } else {
-                result.innerHTML = "<span style='color:red;'>❌ Incorrect. Please try again.</span>";
+                reconResultDiv.style.color = 'red';
+                reconResultDiv.textContent = '❌ Incorrect. Keep looking!';
             }
         }
 
+        // Image to ASCII Art functions
         function handleImageUpload(event) {
             const file = event.target.files[0];
-            if (!file) {
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                currentImage = new Image();
-                currentImage.onload = function() {
-                    document.getElementById('image-preview').innerHTML = `<img src="${e.target.result}" alt="Image preview" />`;
-                    generateAsciiArt();
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentImage = new Image();
+                    currentImage.onload = function() {
+                        document.getElementById('image-preview').innerHTML = `<img src="${e.target.result}" alt="Image Preview">`;
+                        generateAsciiArt();
+                    };
+                    currentImage.src = e.target.result;
                 };
-                currentImage.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
+            } else {
+                currentImage = null;
+                document.getElementById('image-preview').innerHTML = '';
+                document.getElementById('ascii-output').textContent = 'Upload an image to see ASCII art here...';
+            }
         }
 
         function generateAsciiArt() {
             if (!currentImage) {
-                document.getElementById('ascii-output').textContent = 'Upload an image to see ASCII art here...';
                 return;
             }
 
             const canvas = document.getElementById('image-canvas');
-            const ctx = canvas.getContext('2d');
+            const context = canvas.getContext('2d', { willReadFrequently: true });
             const asciiOutput = document.getElementById('ascii-output');
+
             const resolution = parseInt(document.getElementById('ascii-resolution-slider').value);
             const contrast = parseInt(document.getElementById('contrast-slider').value);
 
             const aspectRatio = currentImage.width / currentImage.height;
             const outputWidth = resolution;
-            const outputHeight = Math.floor(outputWidth / aspectRatio / 2);
+            const outputHeight = Math.floor(outputWidth / aspectRatio / 2); // Divide by 2 for character aspect ratio
 
             canvas.width = outputWidth;
             canvas.height = outputHeight;
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
+            context.drawImage(currentImage, 0, 0, outputWidth, outputHeight);
+            const imageData = context.getImageData(0, 0, outputWidth, outputHeight);
+            const pixels = imageData.data;
 
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
-            let ascii = '';
+            let asciiArt = '';
+            for (let i = 0; i < pixels.length; i += 4) {
+                const r = pixels[i];
+                const g = pixels[i + 1];
+                const b = pixels[i + 2];
 
-            for (let i = 0; i < data.length; i += 4) {
-                const r = data[i];
-                const g = data[i + 1];
-                const b = data[i + 2];
+                // Calculate luminance with adjustable contrast
+                const luminance = Math.floor((0.2126 * r + 0.7152 * g + 0.0722 * b) * (contrast / 100));
 
-                let gray = (r * 0.299 + g * 0.587 + b * 0.114);
-                gray = Math.min(255, Math.max(0, gray * (contrast / 100)));
-
-                const charIndex = Math.floor(gray / 255 * (asciiCharacters.length - 1));
-                ascii += asciiCharacters[charIndex];
+                const characterIndex = Math.floor(luminance / 255 * (asciiCharacters.length - 1));
+                asciiArt += asciiCharacters[characterIndex];
 
                 if ((i / 4 + 1) % outputWidth === 0) {
-                    ascii += '\n';
+                    asciiArt += '\n';
                 }
             }
-            asciiOutput.textContent = ascii;
+            asciiOutput.textContent = asciiArt;
+            toggleAsciiShadow(); // Re-apply shadow based on toggle state
         }
 
         function toggleAsciiShadow() {
@@ -975,12 +1064,61 @@
         }
 
         function applyBestAsciiSettings() {
-            document.getElementById('ascii-resolution-slider').value = 150;
-            document.getElementById('contrast-slider').value = 180;
-            document.getElementById('shadow-toggle').checked = false;
-            toggleAsciiShadow();
+            document.getElementById('ascii-resolution-slider').value = 180; // A good balance for many images
+            document.getElementById('contrast-slider').value = 150; // Often improves definition
+            document.getElementById('shadow-toggle').checked = true; // Shadows can enhance readability
             generateAsciiArt();
         }
+
+        // Loading screen logic
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            // Allow animation to play, then hide
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+            }, 3000); // Matches the 3s animation duration
+        });
+
+        // Ensure initial active section is shown and themes locked state is checked on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply original theme initially
+            applyTheme('original');
+
+            // Check if Level 1 is complete from localStorage
+            if (localStorage.getItem('isLevelOneComplete') === 'true') {
+                isLevelOneComplete = true;
+            }
+
+            // Manually trigger click on 'welcome' link to set up initial state correctly
+            const welcomeLink = document.querySelector('.sidebar a[data-target="welcome"]');
+            if (welcomeLink) {
+                welcomeLink.click();
+            }
+
+            // Setup event listeners for image to ASCII
+            const imageUpload = document.getElementById('image-upload');
+            const asciiResolutionSlider = document.getElementById('ascii-resolution-slider');
+            const contrastSlider = document.getElementById('contrast-slider');
+            const shadowToggle = document.getElementById('shadow-toggle');
+            const applyBestAsciiSettingsButton = document.getElementById('apply-best-ascii-settings');
+
+            if (imageUpload) {
+                imageUpload.addEventListener('change', handleImageUpload);
+            }
+            if (asciiResolutionSlider) {
+                asciiResolutionSlider.addEventListener('input', generateAsciiArt);
+            }
+            if (contrastSlider) {
+                contrastSlider.addEventListener('input', generateAsciiArt);
+            }
+            if (shadowToggle) {
+                shadowToggle.addEventListener('change', toggleAsciiShadow);
+            }
+            if (applyBestAsciiSettingsButton) {
+                applyBestAsciiSettingsButton.addEventListener('click', applyBestAsciiSettings);
+            }
+        });
     </script>
 </body>
 </html>
